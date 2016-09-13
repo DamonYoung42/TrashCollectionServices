@@ -1,0 +1,79 @@
+Domain classes
+
+
+Customer
+
+
+public int customerID
+pulic string firstName
+public string lastName
+public string street1
+public string street2
+public string city
+public string state
+public string zipcode
+public string telephoneNumber
+public string emailAddress
+public string role
+public ICollection<DateTime> Calendar//a collection of dates, not a calendar
+
+ViewCalendar
+ViewPickups
+AddAdditionalPickup //adds a pickup to the schedule
+RemovePickup //renders a pickup inactive
+AddPickup //renders a pickup active
+EnterDateRange
+
+ViewAddresses
+AddAddress
+RemoveAddress
+EditAddress
+ViewAddressAccountDetails (address, pickups, subscription)
+
+
+Employee
+public int employeeID
+pulic string firstName
+public string lastName
+public string emailAddress
+public string role //employee or customer
+public int passcode //four digit, combined with empID
+public string password
+public ICollection<Address> Addresses
+
+ViewRoute
+ViewCalendar
+ViewPickupInformation (address, pickup schedule)
+//employee does not need to know what the customer name is
+
+
+Pickup
+public int pickupID
+public int customerID 
+public int employeeID
+public string street1
+public string street2
+public string city
+public string state
+public string zipcode
+public bool status //inactive or active
+
+DisplayPickup
+ChangeStatus
+
+
+Route
+public int employeeID
+public ICollection<Pickups>
+
+DisplayRoute
+Subscription
+Date
+fee
+balance due
+amount paid
+ICollection<Payment> Payments
+
+
+
+ha ha ha the formatting is now all wrong.
