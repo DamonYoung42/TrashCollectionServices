@@ -23,16 +23,15 @@ namespace TrashCollection
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));   
    
    
-                // In Startup iam creating first Admin Role and creating a default Admin User    
                 if (!roleManager.RoleExists("Admin"))   
                 {   
    
-                    // first we create Admin rool   
+                      
                     var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
                     role.Name = "Admin";   
                     roleManager.Create(role);   
    
-                    //Here we create a Admin super user who will maintain the website                  
+               
    
                     var user = new ApplicationUser();
                     user.UserName = "admin";   
@@ -42,7 +41,7 @@ namespace TrashCollection
 
                     var chkUser = UserManager.Create(user, userPWD);   
    
-                    //Add default User to Role Admin   
+
                     if (chkUser.Succeeded)   
                     {   
                         var result1 = UserManager.AddToRole(user.Id, "Admin");
@@ -50,7 +49,7 @@ namespace TrashCollection
                     }
                 }   
    
-                // creating Creating Manager role    
+
                 if (!roleManager.RoleExists("Customer"))   
                 {   
                     var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
