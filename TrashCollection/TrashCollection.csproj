@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201609131949052_initial migration.Designer.cs">
       <DependentUpon>201609131949052_initial migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609140150191_UserRole added to aspnetusers.cs" />
+    <Compile Include="Migrations\201609140150191_UserRole added to aspnetusers.Designer.cs">
+      <DependentUpon>201609140150191_UserRole added to aspnetusers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -321,6 +325,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201609131949052_initial migration.resx">
       <DependentUpon>201609131949052_initial migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609140150191_UserRole added to aspnetusers.resx">
+      <DependentUpon>201609140150191_UserRole added to aspnetusers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -58,7 +58,6 @@ namespace TrashCollection
    
                 }   
    
-                // creating Creating Employee role    
                 if (!roleManager.RoleExists("Employee"))   
                 {   
                     var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
