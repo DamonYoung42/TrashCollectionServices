@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TrashCollection.Models.Address>
+
+@{
+    ViewBag.Title = "CustomerAddressView";
+}
+
+<h2>CustomerAddressView</h2>
+
+
+@foreach (var address in Model)
+    
+{
+           <tr>
+            <td>
+                @Html.DisplayFor(modelItem => address.City.CityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => address.Zipcode.ZipcodeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => address.Street1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => address.Street2)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = address.AddressID }) |
+                @Html.ActionLink("Details", "Details", new { id = address.AddressID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = address.AddressID })
+            </td>
+        </tr>
+    }
+

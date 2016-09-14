@@ -202,7 +202,7 @@
     <Compile Include="Classes\Route.cs" />
     <Compile Include="Classes\Subscription.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CustomerPickupJuncturesController.cs" />
+    <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -218,12 +218,15 @@
     <Compile Include="Migrations\201609140150191_UserRole added to aspnetusers.Designer.cs">
       <DependentUpon>201609140150191_UserRole added to aspnetusers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609141601231_deleted pickup juntion.cs" />
+    <Compile Include="Migrations\201609141601231_deleted pickup juntion.Designer.cs">
+      <DependentUpon>201609141601231_deleted pickup juntion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Country.cs" />
-    <Compile Include="Models\CustomerPickupJuncture.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -305,11 +308,11 @@
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\CustomerPickupJunctures\Create.cshtml" />
-    <Content Include="Views\CustomerPickupJunctures\Delete.cshtml" />
-    <Content Include="Views\CustomerPickupJunctures\Details.cshtml" />
-    <Content Include="Views\CustomerPickupJunctures\Edit.cshtml" />
-    <Content Include="Views\CustomerPickupJunctures\Index.cshtml" />
+    <Content Include="Views\Addresses\Create.cshtml" />
+    <Content Include="Views\Addresses\Delete.cshtml" />
+    <Content Include="Views\Addresses\Details.cshtml" />
+    <Content Include="Views\Addresses\Edit.cshtml" />
+    <Content Include="Views\Addresses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -328,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609140150191_UserRole added to aspnetusers.resx">
       <DependentUpon>201609140150191_UserRole added to aspnetusers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609141601231_deleted pickup juntion.resx">
+      <DependentUpon>201609141601231_deleted pickup juntion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -36,7 +36,6 @@ namespace TrashCollection.Models
         public DbSet<Address> Address { get; set; }
         public DbSet<City> City { get; set; }
         public DbSet<Country> Country { get; set; }
-        public DbSet<CustomerPickupJuncture> CustomerPickupJuncture { get; set; }
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Employee> Employee { get; set; }
         public DbSet<Pickup> Pickup { get; set; }
