@@ -202,6 +202,7 @@
     <Compile Include="Classes\Route.cs" />
     <Compile Include="Classes\Subscription.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -220,6 +221,10 @@
     <Compile Include="Migrations\201609141601231_deleted pickup juntion.cs" />
     <Compile Include="Migrations\201609141601231_deleted pickup juntion.Designer.cs">
       <DependentUpon>201609141601231_deleted pickup juntion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609141849479_remove addressid from pickup.cs" />
+    <Compile Include="Migrations\201609141849479_remove addressid from pickup.Designer.cs">
+      <DependentUpon>201609141849479_remove addressid from pickup.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -333,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609141601231_deleted pickup juntion.resx">
       <DependentUpon>201609141601231_deleted pickup juntion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609141849479_remove addressid from pickup.resx">
+      <DependentUpon>201609141849479_remove addressid from pickup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

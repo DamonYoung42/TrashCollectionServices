@@ -17,7 +17,6 @@ namespace TrashCollection.Controllers
         // GET: Addresses
         public ActionResult Index()
         {
-            var model = db.Customer
             var address = db.Address.Include(a => a.City).Include(a => a.Zipcode);
             return View(address.ToList());
         }

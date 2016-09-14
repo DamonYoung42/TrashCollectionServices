@@ -21,11 +21,6 @@ namespace TrashCollection.Models
         //this bool is "active"/"inactive"
         public bool Status { get; set; }
 
-        [ForeignKey("Address")]
-        public int AddressID { get; set; }
-        public Address Address { get; set; }
-
-
         [ForeignKey("Employee")]
         public int EmployeeID { get; set; }
         public Employee Employee { get; set; }

@@ -27,5 +27,6 @@ namespace TrashCollection.Models
         public int AddressID { get; set; }
         public Address Address { get; set; }
 
+
     }
 }
