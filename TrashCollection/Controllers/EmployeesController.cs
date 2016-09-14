@@ -123,5 +123,20 @@ namespace TrashCollection.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult ViewPickups()
+        {
+            var employeePickups = new List<Pickup>
+            {
+                new Pickup { PickupID = 1, PickupDate = DateTime.Parse("9/15/2016"), Status = true, EmployeeID = 1},
+                new Pickup { PickupID = 2, PickupDate = DateTime.Parse("9/15/2016"), Status = true, EmployeeID = 1},
+                new Pickup { PickupID = 3, PickupDate = DateTime.Parse("9/15/2016"), Status = false, EmployeeID = 1}
+            };
+
+            return View(employeePickups);
+        }
     }
 }
+
+
+

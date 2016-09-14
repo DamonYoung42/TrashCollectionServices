@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TrashCollection.Models.Pickup>
+
+@{
+    ViewBag.Title = "ViewPickups";
+}
+
+<h2>ViewPickups</h2>
+<p>
+    Select from @Model.Count()
+    pickups:
+</p>
+@*<ul>
+        @foreach (var pickup in Model)
+        {
+            <li>@pickup.PickupID</li>
+        }
+    </ul>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PickupID)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.PickupDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickupID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickupDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeID)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+                </td>*@
+        </tr>
+
+    }
+</table>
