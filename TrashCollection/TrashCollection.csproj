@@ -213,13 +213,9 @@
     <Compile Include="Migrations\201609131949052_initial migration.Designer.cs">
       <DependentUpon>201609131949052_initial migration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609141541391_deleted customer pickup juncture with views and controllers.cs" />
-    <Compile Include="Migrations\201609141541391_deleted customer pickup juncture with views and controllers.Designer.cs">
-      <DependentUpon>201609141541391_deleted customer pickup juncture with views and controllers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609141543070_added addressID to pickups table as foreign key.cs" />
-    <Compile Include="Migrations\201609141543070_added addressID to pickups table as foreign key.Designer.cs">
-      <DependentUpon>201609141543070_added addressID to pickups table as foreign key.cs</DependentUpon>
+    <Compile Include="Migrations\201609140150191_UserRole added to aspnetusers.cs" />
+    <Compile Include="Migrations\201609140150191_UserRole added to aspnetusers.Designer.cs">
+      <DependentUpon>201609140150191_UserRole added to aspnetusers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -324,11 +320,8 @@
     <EmbeddedResource Include="Migrations\201609131949052_initial migration.resx">
       <DependentUpon>201609131949052_initial migration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609141541391_deleted customer pickup juncture with views and controllers.resx">
-      <DependentUpon>201609141541391_deleted customer pickup juncture with views and controllers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609141543070_added addressID to pickups table as foreign key.resx">
-      <DependentUpon>201609141543070_added addressID to pickups table as foreign key.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609140150191_UserRole added to aspnetusers.resx">
+      <DependentUpon>201609140150191_UserRole added to aspnetusers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
