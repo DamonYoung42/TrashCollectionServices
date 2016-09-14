@@ -10,112 +10,116 @@ using TrashCollection.Models;
 
 namespace TrashCollection.Controllers
 {
-    public class CustomersController : Controller
+    public class SubscriptionsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Customers
+        // GET: Subscriptions
         public ActionResult Index()
         {
-            var customer = db.Customer.Include(c => c.Address);
-            return View(customer.ToList());
+            var subscription = db.Subscription.Include(s => s.Customer).Include(s => s.Pickup);
+            return View(subscription.ToList());
         }
 
-        // GET: Customers/Details/5
+        // GET: Subscriptions/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customer.Find(id);
-            if (customer == null)
+            Subscription subscription = db.Subscription.Find(id);
+            if (subscription == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(subscription);
         }
 
-        // GET: Customers/Create
+        // GET: Subscriptions/Create
         public ActionResult Create()
         {
-            ViewBag.AddressID = new SelectList(db.Address, "AddressID", "Street1");
+            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName");
+            ViewBag.PickupID = new SelectList(db.Pickup, "PickupID", "PickupID");
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: Subscriptions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerID,FirstName,LastName,Company,Role,EmailAddress,AddressID")] Customer customer)
+        public ActionResult Create([Bind(Include = "SubscriptionID,PickupID,CustomerID,Fee,AmountPaid,BalanceDue,AutomaticPayments,PaperlessBilling,PaymentMethod")] Subscription subscription)
         {
             if (ModelState.IsValid)
             {
-                db.Customer.Add(customer);
+                db.Subscription.Add(subscription);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AddressID = new SelectList(db.Address, "AddressID", "Street1", customer.AddressID);
-            return View(customer);
+            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName", subscription.CustomerID);
+            ViewBag.PickupID = new SelectList(db.Pickup, "PickupID", "PickupID", subscription.PickupID);
+            return View(subscription);
         }
 
-        // GET: Customers/Edit/5
+        // GET: Subscriptions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customer.Find(id);
-            if (customer == null)
+            Subscription subscription = db.Subscription.Find(id);
+            if (subscription == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.AddressID = new SelectList(db.Address, "AddressID", "Street1", customer.AddressID);
-            return View(customer);
+            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName", subscription.CustomerID);
+            ViewBag.PickupID = new SelectList(db.Pickup, "PickupID", "PickupID", subscription.PickupID);
+            return View(subscription);
         }
 
-        // POST: Customers/Edit/5
+        // POST: Subscriptions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerID,FirstName,LastName,Company,Role,EmailAddress,AddressID")] Customer customer)
+        public ActionResult Edit([Bind(Include = "SubscriptionID,PickupID,CustomerID,Fee,AmountPaid,BalanceDue,AutomaticPayments,PaperlessBilling,PaymentMethod")] Subscription subscription)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customer).State = EntityState.Modified;
+                db.Entry(subscription).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AddressID = new SelectList(db.Address, "AddressID", "Street1", customer.AddressID);
-            return View(customer);
+            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName", subscription.CustomerID);
+            ViewBag.PickupID = new SelectList(db.Pickup, "PickupID", "PickupID", subscription.PickupID);
+            return View(subscription);
         }
 
-        // GET: Customers/Delete/5
+        // GET: Subscriptions/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customer.Find(id);
-            if (customer == null)
+            Subscription subscription = db.Subscription.Find(id);
+            if (subscription == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(subscription);
         }
 
-        // POST: Customers/Delete/5
+        // POST: Subscriptions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Customer customer = db.Customer.Find(id);
-            db.Customer.Remove(customer);
+            Subscription subscription = db.Subscription.Find(id);
+            db.Subscription.Remove(subscription);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

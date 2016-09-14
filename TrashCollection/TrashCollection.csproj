@@ -196,17 +196,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Classes\Address.cs" />
-    <Compile Include="Classes\Customer.cs" />
     <Compile Include="Classes\Employee.cs" />
     <Compile Include="Classes\Pickup.cs" />
     <Compile Include="Classes\Route.cs" />
     <Compile Include="Classes\Subscription.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressesController.cs" />
-    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SubscriptionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,6 +224,26 @@
     <Compile Include="Migrations\201609141849479_remove addressid from pickup.cs" />
     <Compile Include="Migrations\201609141849479_remove addressid from pickup.Designer.cs">
       <DependentUpon>201609141849479_remove addressid from pickup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609141920440_UserId FK to Customer.cs" />
+    <Compile Include="Migrations\201609141920440_UserId FK to Customer.Designer.cs">
+      <DependentUpon>201609141920440_UserId FK to Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609142017598_customer.cs" />
+    <Compile Include="Migrations\201609142017598_customer.Designer.cs">
+      <DependentUpon>201609142017598_customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609142039331_customerl.cs" />
+    <Compile Include="Migrations\201609142039331_customerl.Designer.cs">
+      <DependentUpon>201609142039331_customerl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609142042043_customer2.cs" />
+    <Compile Include="Migrations\201609142042043_customer2.Designer.cs">
+      <DependentUpon>201609142042043_customer2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609142043398_customer0.cs" />
+    <Compile Include="Migrations\201609142043398_customer0.Designer.cs">
+      <DependentUpon>201609142043398_customer0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -302,11 +321,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Customers\Create.cshtml" />
-    <Content Include="Views\Customers\Delete.cshtml" />
-    <Content Include="Views\Customers\Details.cshtml" />
-    <Content Include="Views\Customers\Edit.cshtml" />
-    <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Employees\Create.cshtml" />
     <Content Include="Views\Employees\Delete.cshtml" />
     <Content Include="Views\Employees\Details.cshtml" />
@@ -317,6 +331,11 @@
     <Content Include="Views\Addresses\Details.cshtml" />
     <Content Include="Views\Addresses\Edit.cshtml" />
     <Content Include="Views\Addresses\Index.cshtml" />
+    <Content Include="Views\Subscriptions\Create.cshtml" />
+    <Content Include="Views\Subscriptions\Delete.cshtml" />
+    <Content Include="Views\Subscriptions\Details.cshtml" />
+    <Content Include="Views\Subscriptions\Edit.cshtml" />
+    <Content Include="Views\Subscriptions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -341,6 +360,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609141849479_remove addressid from pickup.resx">
       <DependentUpon>201609141849479_remove addressid from pickup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609141920440_UserId FK to Customer.resx">
+      <DependentUpon>201609141920440_UserId FK to Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609142017598_customer.resx">
+      <DependentUpon>201609142017598_customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609142039331_customerl.resx">
+      <DependentUpon>201609142039331_customerl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609142042043_customer2.resx">
+      <DependentUpon>201609142042043_customer2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609142043398_customer0.resx">
+      <DependentUpon>201609142043398_customer0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

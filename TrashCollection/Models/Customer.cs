@@ -27,6 +27,13 @@ namespace TrashCollection.Models
         public int AddressID { get; set; }
         public Address Address { get; set; }
 
+        [ForeignKey("ApplicationUser")]
+        public string UserId { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
+
+
+
+
 
     }
 }

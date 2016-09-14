@@ -1,0 +1,82 @@
+﻿@model TrashCollection.Models.Subscription
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Subscription</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pickup.PickupID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pickup.PickupID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmountPaid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountPaid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BalanceDue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BalanceDue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AutomaticPayments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AutomaticPayments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaperlessBilling)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaperlessBilling)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentMethod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentMethod)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SubscriptionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
