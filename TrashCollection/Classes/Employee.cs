@@ -14,13 +14,15 @@ namespace TrashCollection.Classes
         public string role; //employee or customer
         public int passcode; //four digit, combined with empID
         public string password;
-        public ICollection<Address> Addresses;
+        public Pickup pickup;
+        public Dictionary<int, Pickup> employeePickups;
 
-        public Employee()
+        public Employee(int employeeID)
         {
-
+            employeeID = 0;
         }
 
+        //}
         //ViewRoute
         //ViewCalendar
         //ViewPickupInformation(address, pickup schedule)

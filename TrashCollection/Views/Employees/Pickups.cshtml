@@ -1,0 +1,79 @@
+﻿<% Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<MvcApplication1.Models.Pickup>>" %>
+
+    <h2>Index</h2>
+
+    <table>
+
+        <tr>
+
+            <th></th>
+
+            <th>
+
+                PickupID
+
+            </th>
+
+            <th>
+
+                PickupDate
+
+            </th>
+
+            <th>
+
+                Status
+
+            </th>
+
+            <th>
+
+                EmployeeID
+
+            </th>
+
+        </tr>
+
+    <% foreach (var item in Model) { %>
+
+        <tr>
+
+            <td>
+
+                <%= Html.ActionLink("Edit", "Edit", new { id=item.Id }) %> |
+
+                <%= Html.ActionLink("Details", "Details", new { id=item.Id })%>
+
+            </td>
+
+            <td>
+
+                <%= Html.Encode(item.PickupID) %>
+
+            </td>
+
+            <td>
+
+                <%= Html.Encode(item.PickupDate) %>
+
+            </td>
+
+            <td>
+
+                <%= Html.Encode(item.Status) %>
+
+            </td>
+
+            <td>
+
+                <%= Html.Encode(item.EmployeeID) %>
+
+            </td>
+
+        </tr>
+
+
+
+    <% } %>
+
+    </table>

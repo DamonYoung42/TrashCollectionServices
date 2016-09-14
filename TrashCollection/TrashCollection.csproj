@@ -202,7 +202,6 @@
     <Compile Include="Classes\Route.cs" />
     <Compile Include="Classes\Subscription.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CustomerPickupJuncturesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -214,12 +213,19 @@
     <Compile Include="Migrations\201609131949052_initial migration.Designer.cs">
       <DependentUpon>201609131949052_initial migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609141541391_deleted customer pickup juncture with views and controllers.cs" />
+    <Compile Include="Migrations\201609141541391_deleted customer pickup juncture with views and controllers.Designer.cs">
+      <DependentUpon>201609141541391_deleted customer pickup juncture with views and controllers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609141543070_added addressID to pickups table as foreign key.cs" />
+    <Compile Include="Migrations\201609141543070_added addressID to pickups table as foreign key.Designer.cs">
+      <DependentUpon>201609141543070_added addressID to pickups table as foreign key.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Country.cs" />
-    <Compile Include="Models\CustomerPickupJuncture.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -301,11 +307,7 @@
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\CustomerPickupJunctures\Create.cshtml" />
-    <Content Include="Views\CustomerPickupJunctures\Delete.cshtml" />
-    <Content Include="Views\CustomerPickupJunctures\Details.cshtml" />
-    <Content Include="Views\CustomerPickupJunctures\Edit.cshtml" />
-    <Content Include="Views\CustomerPickupJunctures\Index.cshtml" />
+    <Content Include="Views\Employees\Pickups.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -321,6 +323,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201609131949052_initial migration.resx">
       <DependentUpon>201609131949052_initial migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609141541391_deleted customer pickup juncture with views and controllers.resx">
+      <DependentUpon>201609141541391_deleted customer pickup juncture with views and controllers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609141543070_added addressID to pickups table as foreign key.resx">
+      <DependentUpon>201609141543070_added addressID to pickups table as foreign key.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
