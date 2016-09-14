@@ -17,9 +17,9 @@ namespace TrashCollection.Classes
         public Pickup pickup;
         public Dictionary<int, Pickup> employeePickups;
 
-        public Employee(int employeeID)
+        public Employee()
         {
-            employeeID = 0;
+            
         }
 
         //}

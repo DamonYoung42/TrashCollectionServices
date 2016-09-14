@@ -1,5 +1,5 @@
-﻿@model TrashCollection.Models.Employee
-
+﻿@model TrashCollection.Models.EmployeePickupViewModel
+    
 @{
     ViewBag.Title = "Details";
 }
@@ -11,50 +11,94 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model =>Model.EmployeeID)
+            @Html.DisplayNameFor(model =>Model.employee.EmployeeID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => Model.EmployeeID)
+            @Html.DisplayFor(model => Model.employee.EmployeeID)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.employee.FirstName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FirstName)
+            @Html.DisplayFor(model => model.employee.FirstName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.employee.LastName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LastName)
+            @Html.DisplayFor(model => model.employee.LastName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EmailAddress)
+            @Html.DisplayNameFor(model => model.employee.EmailAddress)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EmailAddress)
+            @Html.DisplayFor(model => model.employee.EmailAddress)
         </dd>
+
         <dt>
-            @Html.DisplayNameFor(model => model.Pickup)
+            @Html.DisplayNameFor(model => model.employeePickups)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Pickup)
+            @Html.DisplayFor(model => model.employeePickups[2])
         </dd>
+        
 
     </dl>
+
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.employee.EmployeeID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.pickup.PickupID)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.pickup.PickupDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pickup.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pickup.EmployeeID)
+        </th>
+        <th></th>
+    </tr>
+
+    @*@foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pickup.PickupID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pickup.PickupDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pickup.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employee.EmployeeID)
+            </td>*@
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+                </td>*@
+        </tr>
+    }
+
 
 
 
