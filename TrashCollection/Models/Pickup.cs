@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System.Collections;
 
 namespace TrashCollection.Models
 {
@@ -21,11 +21,19 @@ namespace TrashCollection.Models
         //this bool is "active"/"inactive"
         public bool Status { get; set; }
 
+        [ForeignKey("Address")]
+        public int AddressID { get; set; }
+        public Address Address { get; set; }
+
 
         [ForeignKey("Employee")]
         public int EmployeeID { get; set; }
         public Employee Employee { get; set; }
 
 
+        //IEnumerator IEnumerable.GetEnumerator()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

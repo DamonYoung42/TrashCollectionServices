@@ -11,6 +11,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model =>Model.EmployeeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.EmployeeID)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
 
@@ -33,6 +41,13 @@
         <dd>
             @Html.DisplayFor(model => model.EmailAddress)
         </dd>
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Pickups)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pickups)
+        </dd>*@
 
     </dl>
 </div>
@@ -40,3 +55,5 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+
