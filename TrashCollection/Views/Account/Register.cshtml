@@ -16,12 +16,12 @@
     <div class="form-group">
         @Html.Label("Account Type", new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(m => m.UserRole, new { @class = "form-control" })
+            @Html.RadioButtonFor(m => m.UserRole, "Customer", new { id = "rbCustomer" })
             @Html.LabelFor(m => m.UserRole, "Customer")
             <p></p>
-            @Html.RadioButtonFor(m => m.UserRole, new { @class="form-control"})
+            @Html.RadioButtonFor(m => m.UserRole, "Employee", new { id = "rbEmployee"})
             @Html.LabelFor(m =>m.UserRole, "Employee")
-            @Html.TextBox("myTextBox", "Passcode required for employee registration", new { @class = "form-control" })
+            @Html.TextBox("myTextBox", "Required for employee registration", new { @class = "form-control" })
 
         </div>
     </div>
