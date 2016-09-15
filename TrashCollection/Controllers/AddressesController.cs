@@ -21,7 +21,9 @@ namespace TrashCollection.Controllers
             //var userId = User.Identity.GetUserId();
 
             //var model = db.Address.Where(y => y.CustomerID == currentCustomer.);
-            return View();
+            return View(db.Address.ToList());
+
+            //return View();
 
             //Adam's brilliant solution
             //var userId = User.Identity.GetUserId();
@@ -54,7 +56,7 @@ namespace TrashCollection.Controllers
         public ActionResult Create()
         {
             ViewBag.CityID = new SelectList(db.City, "CityID", "CityName");
-            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName");
+            //ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName");
             ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName");
             return View();
         }

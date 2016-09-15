@@ -173,7 +173,7 @@ namespace TrashCollection.Controllers
                         customer.UserId = user.Id;
                         context.Customer.Add(customer);
                         context.SaveChanges();
-                        return RedirectToAction("Index", "Addresses");
+                        return RedirectToAction("Create", "Addresses");
                     }
                     else
                     {
@@ -182,7 +182,7 @@ namespace TrashCollection.Controllers
                         context.Employee.Add(employee);
                         context.SaveChanges();
                     }
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Create", "Employees");
                 }
                 AddErrors(result);
             }
