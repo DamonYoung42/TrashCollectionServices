@@ -196,7 +196,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Classes\Address.cs" />
-    <Compile Include="Classes\Employee.cs" />
     <Compile Include="Classes\Pickup.cs" />
     <Compile Include="Classes\Route.cs" />
     <Compile Include="Classes\Subscription.cs" />
@@ -245,10 +244,15 @@
     <Compile Include="Migrations\201609151241102_FK update to address, employee.Designer.cs">
       <DependentUpon>201609151241102_FK update to address, employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609151623111_created AddressPickupJunc juncture table and added ICollection to Customer.cs" />
+    <Compile Include="Migrations\201609151623111_created AddressPickupJunc juncture table and added ICollection to Customer.Designer.cs">
+      <DependentUpon>201609151623111_created AddressPickupJunc juncture table and added ICollection to Customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\PickupAddressJunc.cs" />
     <Compile Include="Models\EmployeePickupViewModel.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -337,7 +341,6 @@
     <Content Include="Views\Subscriptions\Details.cshtml" />
     <Content Include="Views\Subscriptions\Edit.cshtml" />
     <Content Include="Views\Subscriptions\Index.cshtml" />
-    <Content Include="Views\Employees\ViewPickups.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -377,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609151241102_FK update to address, employee.resx">
       <DependentUpon>201609151241102_FK update to address, employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609151623111_created AddressPickupJunc juncture table and added ICollection to Customer.resx">
+      <DependentUpon>201609151623111_created AddressPickupJunc juncture table and added ICollection to Customer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

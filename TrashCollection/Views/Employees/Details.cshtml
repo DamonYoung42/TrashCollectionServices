@@ -1,5 +1,5 @@
 ﻿@model TrashCollection.Models.EmployeePickupViewModel
-    
+
 @{
     ViewBag.Title = "Details";
 }
@@ -10,14 +10,6 @@
     <h4>Employee</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model =>Model.employee.EmployeeID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => Model.employee.EmployeeID)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.employee.FirstName)
         </dt>
@@ -41,65 +33,64 @@
         <dd>
             @Html.DisplayFor(model => model.employee.EmailAddress)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.employeePickups)
+            @Html.DisplayNameFor(model => model.employee.EmployeeID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.employeePickups[2])
+            @Html.DisplayFor(model => model.employee.EmployeeID)
         </dd>
-        
+
 
     </dl>
-
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.employee.EmployeeID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.pickup.PickupID)
+            @Html.DisplayNameFor(model => model.pickup.Status)
         </th>
 
+        <th>
+            @Html.DisplayNameFor(model => model.pickup.PickupID)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.pickup.PickupDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.pickup.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.pickup.EmployeeID)
+            @Html.DisplayNameFor(model => model.employee.EmployeeID)
         </th>
         <th></th>
     </tr>
 
-    @*@foreach (var item in Model)
+    @foreach (var pickupItem in Model.employeePickups)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.pickup.PickupID)
+                @Html.DisplayFor(modelItem => pickupItem.Status)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => pickupItem.PickupID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.pickup.PickupDate)
+                @Html.DisplayFor(modelItem => pickupItem.PickupDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.pickup.Status)
+                @Html.DisplayFor(modelItem => pickupItem.EmployeeID)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.employee.EmployeeID)
-            </td>*@
             @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
-                </td>*@
+                @Html.ActionLink("Edit", "Edit", new { id = pickupItem.EmployeeID }) |
+                @Html.ActionLink("Details", "Details", new { id = pickupItem.EmployeeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = pickupItem.EmployeeID })
+            </td>*@
         </tr>
+
     }
 
-
-
-
+</table>
 

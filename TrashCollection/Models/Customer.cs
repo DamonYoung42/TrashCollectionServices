@@ -23,9 +23,7 @@ namespace TrashCollection.Models
 
         public string EmailAddress { get; set; }
 
-        //[ForeignKey("Address")]
-        //public int AddressID { get; set; }
-        //public Address Address { get; set; }
+        public ICollection<Address> customerAddresses;
 
         [ForeignKey("ApplicationUser")]
         public string UserId { get; set; }

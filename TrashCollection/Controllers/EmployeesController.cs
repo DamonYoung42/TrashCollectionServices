@@ -20,37 +20,26 @@ namespace TrashCollection.Controllers
             return View(db.Employee.ToList());
         }
 
-        // GET: Employees/Details/5
+        // GET: Employees/Details
         public ActionResult Details(int? id)
         {
+            EmployeePickupViewModel epModel = new EmployeePickupViewModel();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.Employee.Find(id);
-            if (employee == null)
+            epModel.employee = db.Employee.Find(id);
+            if (epModel.employee == null)
             {
                 return HttpNotFound();
             }
-            EmployeePickupViewModel epModel = new EmployeePickupViewModel();
-            Pickup pickup = db.Pickup.First();
+            List<Pickup> employeePickups = new List<Pickup>();
+            employeePickups = db.Pickup.ToList().Where(g=> g.EmployeeID == epModel.employee.EmployeeID).ToList();
+            epModel.employeePickups = employeePickups;
             return View(epModel);
+
+            //Address address = db.Address.Where(g => g.PickupID == epModel.pickup.PickupID);
         }
-
-
-        // GET: Employees/Details/5
-        public ActionResult ViewPickups()
-        {
-            var employeePickups = new List<Pickup>
-            {
-                new Pickup { PickupID = 1, PickupDate = DateTime.Parse("9/15/2016"), Status = true, EmployeeID = 1},
-                new Pickup { PickupID = 2, PickupDate = DateTime.Parse("9/15/2016"), Status = true, EmployeeID = 1},
-                new Pickup { PickupID = 3, PickupDate = DateTime.Parse("9/15/2016"), Status = false, EmployeeID = 1}
-            };
-
-            return View(employeePickups);
-        }
-
 
         // GET: Employees/Create
         public ActionResult Create()
