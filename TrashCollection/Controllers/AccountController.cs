@@ -82,7 +82,8 @@ namespace TrashCollection.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "Addresses");
+                    //return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -173,7 +174,8 @@ namespace TrashCollection.Controllers
                         customer.UserId = user.Id;
                         context.Customer.Add(customer);
                         context.SaveChanges();
-                        return RedirectToAction("Index", "Addresses");
+                        return RedirectToAction("Create", "Addresses");
+                        
                     }
                     else
                     {
