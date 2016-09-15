@@ -28,7 +28,6 @@ namespace TrashCollection.Controllers
             //var model = db.Address.Where(y => y.CustomerID == currentCustomer.);
             return View(model.customerAddresses);
 
-
             //Adam's brilliant solution
             //var userId = User.Identity.GetUserId();
             //var t = db.Customer.Include(y => y.ApplicationUser).Include(y => y.Address);
