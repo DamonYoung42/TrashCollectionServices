@@ -29,5 +29,10 @@ namespace TrashCollection.Models
         [ForeignKey("Zipcode")]
         public int ZipID { get; set; }
         public Zipcode Zipcode { get; set; }
+
+
+        [ForeignKey("Customer")]
+        public int CustomerID { get; set; }
+        public Customer Customer { get; set; }
     }
 }

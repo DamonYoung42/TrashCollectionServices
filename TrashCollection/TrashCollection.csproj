@@ -241,6 +241,10 @@
     <Compile Include="Migrations\201609142043398_customer0.Designer.cs">
       <DependentUpon>201609142043398_customer0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609151241102_FK update to address, employee.cs" />
+    <Compile Include="Migrations\201609151241102_FK update to address, employee.Designer.cs">
+      <DependentUpon>201609151241102_FK update to address, employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -272,7 +276,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Compile Include="Controllers\CustomersController.cs" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -371,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609142043398_customer0.resx">
       <DependentUpon>201609142043398_customer0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609151241102_FK update to address, employee.resx">
+      <DependentUpon>201609151241102_FK update to address, employee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -169,7 +169,12 @@ namespace TrashCollection.Controllers
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRole);
                     //if (model.UserRole == "Customer")
                     //{
-                    //    return RedirectToAction("Create", "Customers");
+                    //    ApplicationDbContext db = new ApplicationDbContext();
+                    //    var customer = new Customer();
+                    //    customer.UserId = user.Id;
+                    //    db.Customer.Add(customer);
+                    //    db.SaveChanges();
+
                     //}
                     //else
                     //{
