@@ -18,12 +18,13 @@ namespace TrashCollection.Controllers
         // GET: Addresses
         public ActionResult Index()
         {
-            var userId = User.Identity.GetUserId();
-            var t = db.Customer.Include(y => y.ApplicationUser).Include(y => y.Address);
-            var m = db.Customer.Include(x => x.ApplicationUser).Include(x => x.Address).Where(x => x.ApplicationUser.Id == userId);
-            var model = db.Customer.Include(x => x.ApplicationUser).Include(x => x.Address).Where(x => x.ApplicationUser.Id == userId).Select(x => x.Address).ToList();
+            //var userId = User.Identity.GetUserId();
+            //var t = db.Customer.Include(y => y.ApplicationUser).Include(y => y.Address);
+            //var m = db.Customer.Include(x => x.ApplicationUser).Include(x => x.Address).Where(x => x.ApplicationUser.Id == userId);
+            //var model = db.Customer.Include(x => x.ApplicationUser).Include(x => x.Address).Where(x => x.ApplicationUser.Id == userId).Select(x => x.Address).ToList();
             //var address = db.Address.Include(a => a.City).Include(a => a.Zipcode);
-            return View(model);
+            //return View(model);
+            return View();
         }
 
         // GET: Addresses/Details/5

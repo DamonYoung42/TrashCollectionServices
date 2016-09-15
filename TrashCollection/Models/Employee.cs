@@ -21,6 +21,9 @@ namespace TrashCollection.Models
 
         public string EmailAddress { get; set; }
 
+        [ForeignKey("ApplicationUser")]
+        public string UserId { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
     }
 }
