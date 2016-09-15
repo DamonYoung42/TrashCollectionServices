@@ -18,10 +18,15 @@ namespace TrashCollection.Controllers
         // GET: Addresses
         public ActionResult Index()
         {
-            //var userId = User.Identity.GetUserId();
+            var userId = User.Identity.GetUserId();
+
+            //var model = db.Customer.Include(y => y.customerAddresses).Where(y => y.UserId == userId).SingleOrDefault();
+            var model = db.Customer.Where(y => y.UserId == userId).SingleOrDefault();
+
+            //var model = db.Customer.Include(x => x.ApplicationUser).Include(x => x.customerAddresses).Where(x => x.ApplicationUser.Id == userId).ToList();
 
             //var model = db.Address.Where(y => y.CustomerID == currentCustomer.);
-            return View();
+            return View(model.customerAddresses);
 
             //Adam's brilliant solution
             //var userId = User.Identity.GetUserId();
@@ -53,8 +58,10 @@ namespace TrashCollection.Controllers
         // GET: Addresses/Create
         public ActionResult Create()
         {
+            //var userId = User.Identity.GetUserId();
             ViewBag.CityID = new SelectList(db.City, "CityID", "CityName");
-            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName");
+            //ViewBag.CustomerId = db.Customer.Include(y=>y.CustomerID).Where(y => y.UserId == userId);
+            //ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName");
             ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName");
             return View();
         }
@@ -68,13 +75,15 @@ namespace TrashCollection.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userId = User.Identity.GetUserId();
+                address.CustomerID = db.Customer.First(x => x.UserId == userId).CustomerID;
                 db.Address.Add(address);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.CityID = new SelectList(db.City, "CityID", "CityName", address.CityID);
-            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName", address.CustomerID);
+            //ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName", address.CustomerID);
             ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName", address.ZipID);
             return View(address);
         }
