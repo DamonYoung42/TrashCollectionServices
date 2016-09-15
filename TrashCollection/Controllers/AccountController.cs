@@ -105,7 +105,7 @@ namespace TrashCollection.Controllers
             {
                 return View("Error");
             }
-            return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
+            return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RemembehrMe = rememberMe });
         }
 
         //
@@ -160,6 +160,7 @@ namespace TrashCollection.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -175,7 +176,6 @@ namespace TrashCollection.Controllers
                         context.Customer.Add(customer);
                         context.SaveChanges();
                         return RedirectToAction("Create", "Addresses");
-                        
                     }
                     else
                     {
@@ -184,7 +184,7 @@ namespace TrashCollection.Controllers
                         context.Employee.Add(employee);
                         context.SaveChanges();
                     }
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Create", "Employees");
                 }
                 AddErrors(result);
             }

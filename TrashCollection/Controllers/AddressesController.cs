@@ -60,7 +60,6 @@ namespace TrashCollection.Controllers
         {
             //var userId = User.Identity.GetUserId();
             ViewBag.CityID = new SelectList(db.City, "CityID", "CityName");
-            //ViewBag.CustomerId = db.Customer.Include(y=>y.CustomerID).Where(y => y.UserId == userId);
             //ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName");
             ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName");
             return View();
