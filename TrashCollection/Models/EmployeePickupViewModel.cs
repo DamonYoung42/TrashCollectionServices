@@ -11,18 +11,12 @@ namespace TrashCollection.Models
         public Employee employee = new Employee();
         public Pickup pickup = new Pickup();
         public Address address = new Address();
+        public PickupAddressJunc pickupAddressJunc = new PickupAddressJunc();
         //public int[] genericArray;
         public List<Pickup> employeePickups;
 
 
 
-
-            //see EmployeesController for new def for list
-            //public List<Pickup> employeePickups = new List<Pickup>{
-            //    new Pickup { PickupID = 1, PickupDate = DateTime.Parse("9/15/2016"), Status = true, EmployeeID = 1},
-            //    new Pickup { PickupID = 2, PickupDate = DateTime.Parse("9/15/2016"), Status = true, EmployeeID = 1},
-            //    new Pickup { PickupID = 3, PickupDate = DateTime.Parse("9/15/2016"), Status = false, EmployeeID = 1}
-            //};
 
         //    IEnumerator IEnumerable.GetEnumerator()
         //{

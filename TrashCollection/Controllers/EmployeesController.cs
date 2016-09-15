@@ -39,7 +39,7 @@ namespace TrashCollection.Controllers
             epModel.employeePickups = employeePickups;
             return View(epModel);
 
-            //Address address = db.Address.Where(g => g.PickupID == epModel.pickup.PickupID);
+            //int AddressID = epModel.pickupAddressJunc.AddressID.Where(g => g.PickupID == epModel.pickup.PickupID);
         }
 
         // GET: Employees/Create
