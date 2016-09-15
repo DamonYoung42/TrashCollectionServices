@@ -195,10 +195,6 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Classes\Address.cs" />
-    <Compile Include="Classes\Pickup.cs" />
-    <Compile Include="Classes\Route.cs" />
-    <Compile Include="Classes\Subscription.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Addresses1Controller.cs" />
     <Compile Include="Controllers\AddressesController.cs" />
@@ -248,6 +244,22 @@
     <Compile Include="Migrations\201609151623111_created AddressPickupJunc juncture table and added ICollection to Customer.cs" />
     <Compile Include="Migrations\201609151623111_created AddressPickupJunc juncture table and added ICollection to Customer.Designer.cs">
       <DependentUpon>201609151623111_created AddressPickupJunc juncture table and added ICollection to Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609151636140_adding pickupaddress juncture table.cs" />
+    <Compile Include="Migrations\201609151636140_adding pickupaddress juncture table.Designer.cs">
+      <DependentUpon>201609151636140_adding pickupaddress juncture table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609151637286_pickup address juncture table added.cs" />
+    <Compile Include="Migrations\201609151637286_pickup address juncture table added.Designer.cs">
+      <DependentUpon>201609151637286_pickup address juncture table added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609151641407_tried to add pickup address juncture.cs" />
+    <Compile Include="Migrations\201609151641407_tried to add pickup address juncture.Designer.cs">
+      <DependentUpon>201609151641407_tried to add pickup address juncture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609151707478_added pickup address juncture table and removed all classes.cs" />
+    <Compile Include="Migrations\201609151707478_added pickup address juncture table and removed all classes.Designer.cs">
+      <DependentUpon>201609151707478_added pickup address juncture table and removed all classes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -348,7 +360,6 @@
     <Content Include="Views\Addresses\Details.cshtml" />
     <Content Include="Views\Addresses\Edit.cshtml" />
     <Content Include="Views\Addresses\Index.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -391,6 +402,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609151623111_created AddressPickupJunc juncture table and added ICollection to Customer.resx">
       <DependentUpon>201609151623111_created AddressPickupJunc juncture table and added ICollection to Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609151636140_adding pickupaddress juncture table.resx">
+      <DependentUpon>201609151636140_adding pickupaddress juncture table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609151637286_pickup address juncture table added.resx">
+      <DependentUpon>201609151637286_pickup address juncture table added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609151641407_tried to add pickup address juncture.resx">
+      <DependentUpon>201609151641407_tried to add pickup address juncture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609151707478_added pickup address juncture table and removed all classes.resx">
+      <DependentUpon>201609151707478_added pickup address juncture table and removed all classes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
