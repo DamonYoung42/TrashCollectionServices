@@ -183,8 +183,9 @@ namespace TrashCollection.Controllers
                         employee.UserId = user.Id;
                         context.Employee.Add(employee);
                         context.SaveChanges();
+                        return RedirectToAction("Edit/"+employee.EmployeeID, "Employees");
                     }
-                    return RedirectToAction("Create", "Employees");
+
                 }
                 AddErrors(result);
             }
