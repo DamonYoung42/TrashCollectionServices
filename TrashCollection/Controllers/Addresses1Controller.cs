@@ -11,18 +11,13 @@ using TrashCollection.Models;
 
 namespace TrashCollection.Controllers
 {
-    public class AddressesController : Controller
+    public class Addresses1Controller : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Addresses
         public ActionResult Index()
         {
-            //var userId = User.Identity.GetUserId();
-
-            //var model = db.Address.Where(y => y.CustomerID == currentCustomer.);
-            return View();
-
             //Adam's brilliant solution
             //var userId = User.Identity.GetUserId();
             //var t = db.Customer.Include(y => y.ApplicationUser).Include(y => y.Address);
@@ -30,9 +25,12 @@ namespace TrashCollection.Controllers
             //var model = db.Customer.Include(x => x.ApplicationUser).Include(x => x.Address).Where(x => x.ApplicationUser.Id == userId).Select(x => x.Address).ToList();
             //return View(model);
 
-            //ORIGINAL CODE
-            //var address = db.Address.Include(a => a.City).Include(a => a.Customer).Include(a => a.Zipcode);
-            //return View(address.ToList());
+            var model = db.Address.Where(y => y.CustomerID == y.Customer.CustomerID).ToList();
+
+            //original code
+            //var address = db.Address.Include(a => a.City).Include(a => a.Zipcode);
+
+            return View(model);
         }
 
         // GET: Addresses/Details/5
@@ -54,7 +52,6 @@ namespace TrashCollection.Controllers
         public ActionResult Create()
         {
             ViewBag.CityID = new SelectList(db.City, "CityID", "CityName");
-            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName");
             ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName");
             return View();
         }
@@ -64,7 +61,7 @@ namespace TrashCollection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AddressID,Street1,Street2,CityID,ZipID,CustomerID")] Address address)
+        public ActionResult Create([Bind(Include = "AddressID,Street1,Street2,CityID,ZipID")] Address address)
         {
             if (ModelState.IsValid)
             {
@@ -74,7 +71,6 @@ namespace TrashCollection.Controllers
             }
 
             ViewBag.CityID = new SelectList(db.City, "CityID", "CityName", address.CityID);
-            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName", address.CustomerID);
             ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName", address.ZipID);
             return View(address);
         }
@@ -92,7 +88,6 @@ namespace TrashCollection.Controllers
                 return HttpNotFound();
             }
             ViewBag.CityID = new SelectList(db.City, "CityID", "CityName", address.CityID);
-            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName", address.CustomerID);
             ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName", address.ZipID);
             return View(address);
         }
@@ -102,7 +97,7 @@ namespace TrashCollection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AddressID,Street1,Street2,CityID,ZipID,CustomerID")] Address address)
+        public ActionResult Edit([Bind(Include = "AddressID,Street1,Street2,CityID,ZipID")] Address address)
         {
             if (ModelState.IsValid)
             {
@@ -111,7 +106,6 @@ namespace TrashCollection.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CityID = new SelectList(db.City, "CityID", "CityName", address.CityID);
-            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName", address.CustomerID);
             ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName", address.ZipID);
             return View(address);
         }

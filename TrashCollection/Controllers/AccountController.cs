@@ -167,19 +167,21 @@ namespace TrashCollection.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRole);
-                    //if (model.UserRole == "Customer")
-                    //{
-                    //    ApplicationDbContext db = new ApplicationDbContext();
-                    //    var customer = new Customer();
-                    //    customer.UserId = user.Id;
-                    //    db.Customer.Add(customer);
-                    //    db.SaveChanges();
-
-                    //}
-                    //else
-                    //{
-                    //    return RedirectToAction("Create", "Employees");
-                    //}
+                    if (model.UserRole == "Customer")
+                    {
+                        var customer = new Customer();
+                        customer.UserId = user.Id;
+                        context.Customer.Add(customer);
+                        context.SaveChanges();
+                        return RedirectToAction("Index", "Addresses");
+                    }
+                    else
+                    {
+                        var employee = new Employee();
+                        employee.UserId = user.Id;
+                        context.Employee.Add(employee);
+                        context.SaveChanges();
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
