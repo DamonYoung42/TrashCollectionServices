@@ -28,6 +28,7 @@ namespace TrashCollection.Controllers
             //var model = db.Address.Where(y => y.CustomerID == currentCustomer.);
             return View(model.customerAddresses);
 
+
             //Adam's brilliant solution
             //var userId = User.Identity.GetUserId();
             //var t = db.Customer.Include(y => y.ApplicationUser).Include(y => y.Address);
@@ -60,7 +61,6 @@ namespace TrashCollection.Controllers
         {
             //var userId = User.Identity.GetUserId();
             ViewBag.CityID = new SelectList(db.City, "CityID", "CityName");
-            //ViewBag.CustomerId = db.Customer.Include(y=>y.CustomerID).Where(y => y.UserId == userId);
             //ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName");
             ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName");
             return View();
