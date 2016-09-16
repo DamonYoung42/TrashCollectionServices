@@ -27,6 +27,11 @@ namespace TrashCollection.Models
         public int EmployeeID { get; set; }
         public Employee Employee { get; set; }
 
+        [ForeignKey("Address")]
+        public int AddressID { get; set; }
+        public Address Address { get; set; }
+
+
 
         //IEnumerator IEnumerable.GetEnumerator()
         //{
