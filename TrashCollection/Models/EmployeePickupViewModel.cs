@@ -11,10 +11,9 @@ namespace TrashCollection.Models
         public Employee employee = new Employee();
         public Pickup pickup = new Pickup();
         public Address address = new Address();
-        public PickupAddressJunc pAJ = new PickupAddressJunc();
+        //public PickupAddressJunc pAJ = new PickupAddressJunc();
         //public int[] genericArray;
         public List<Pickup> employeePickups;
-
 
         //public PickupAddressJunc pAddrJunc = db.PickupAddressJunc.Where(g => g.PickupID == g.pickup.PickupID);
         //public Address address = PickupAddressJunc.pAJ.AddressID.Select(pAJ.PickupID = Pickup.PickupID); 
