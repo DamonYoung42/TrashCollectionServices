@@ -34,9 +34,30 @@ namespace TrashCollection.Controllers
             {
                 return HttpNotFound();
             }
+
             List<Pickup> employeePickups = new List<Pickup>();
             employeePickups = db.Pickup.ToList().Where(g=> g.EmployeeID == epModel.employee.EmployeeID).ToList();
             epModel.employeePickups = employeePickups;
+
+            //PickupAddressJunc pAJ = db.PickupAddressJunc.Where(x => x.PickupID == epModel.pickup.PickupID).First();
+            //var address = db.Address.Where(y => y.AddressID == pAJ.AddressID);
+
+            
+           
+
+            //foreach (Pickup pickupItem in employeePickups)
+            //{
+            //    epModel.pAJ = db.PickupAddressJunc.Where(x => x.PickupID == pickupItem.PickupID).First();
+            //    var address = db.Address.Where(y=>y.AddressID == epModel.pAJ.AddressID);
+            //}
+            //int addressForPickupID = epModel.address.AddressID;
+
+            //var address = db.Address.Where(g => g.AddressID == epModel.pAJ.AddressID)/*.Select(n => n.AddressID).First()*/;
+
+            //epModel.address.AddressID = epModel.GetAddressIDForPickup(epModel.pickup.PickupID);
+            //var employee = context.Employee.Where(y => y.UserId == userId).Select(m => m.EmployeeID);
+            //pAJ.AddressID = db.PickupAddressJunc.Where(pAJ.PickupID == epModel.pickup.PickupID);
+            //address.AddressID = db.PickupAddressJunc.Find(epModel.pickup.PickupID);
             //int AddressID = epModel.pickupAddressJunc.AddressID.Where(g => g.PickupID == epModel.pickup.PickupID);
 
             return View(epModel);

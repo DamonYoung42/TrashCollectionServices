@@ -18,6 +18,8 @@ namespace TrashCollection.Models
         public int PickupID { get; set; }
         public DateTime PickupDate { get; set; }
 
+
+
         //this bool is "active"/"inactive"
         public bool Status { get; set; }
 
