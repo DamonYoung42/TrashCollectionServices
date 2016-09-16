@@ -98,7 +98,7 @@ namespace TrashCollection.Controllers
                 return HttpNotFound();
             }
             ViewBag.CityID = new SelectList(db.City, "CityID", "CityName", address.CityID);
-            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName", address.CustomerID);
+            //ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName", address.CustomerID);
             ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName", address.ZipID);
             return View(address);
         }
@@ -117,7 +117,7 @@ namespace TrashCollection.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CityID = new SelectList(db.City, "CityID", "CityName", address.CityID);
-            ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName", address.CustomerID);
+            //ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName", address.CustomerID);
             ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName", address.ZipID);
             return View(address);
         }
