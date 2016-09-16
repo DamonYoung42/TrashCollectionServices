@@ -10,7 +10,7 @@ using TrashCollection.Models;
 
 namespace TrashCollection.Controllers
 {
-    [Authorize(Roles = "Customer")]
+    //[Authorize(Roles = "Customer")]
     public class CustomersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

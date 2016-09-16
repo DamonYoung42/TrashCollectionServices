@@ -11,7 +11,7 @@ using TrashCollection.Models;
 
 namespace TrashCollection.Controllers
 {
-    [Authorize(Roles = "Employee")]
+    //[Authorize(Roles = "Employee")]
     public class EmployeesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
