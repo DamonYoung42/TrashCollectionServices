@@ -201,6 +201,7 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PickupsController.cs" />
     <Compile Include="Controllers\SubscriptionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -362,6 +363,11 @@
     <Content Include="Views\Employees\Pickups.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\CustomerAddressView.cshtml" />
+    <Content Include="Views\Pickups\Create.cshtml" />
+    <Content Include="Views\Pickups\Delete.cshtml" />
+    <Content Include="Views\Pickups\Details.cshtml" />
+    <Content Include="Views\Pickups\Edit.cshtml" />
+    <Content Include="Views\Pickups\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -432,7 +438,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>6328</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
