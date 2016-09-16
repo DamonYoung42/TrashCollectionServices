@@ -17,7 +17,7 @@ namespace TrashCollection.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customer = db.Customer.Include(c => c.Address).Include(c => c.ApplicationUser);
+            var customer = db.Customer.Include(c => c.ApplicationUser);
             return View(customer.ToList());
         }
 
@@ -39,8 +39,7 @@ namespace TrashCollection.Controllers
         // GET: Customers/Create
         public ActionResult Create()
         {
-            ViewBag.AddressID = new SelectList(db.Address, "AddressID", "Street1");
-            ViewBag.UserId = new SelectList(db.Users, "Id", "UserRole");
+            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "UserRole");
             return View();
         }
 
@@ -49,7 +48,7 @@ namespace TrashCollection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerID,FirstName,LastName,Company,Role,EmailAddress,AddressID,UserId")] Customer customer)
+        public ActionResult Create([Bind(Include = "CustomerID,FirstName,LastName,Company,Role,EmailAddress,UserId")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -58,8 +57,7 @@ namespace TrashCollection.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AddressID = new SelectList(db.Address, "AddressID", "Street1", customer.AddressID);
-            ViewBag.UserId = new SelectList(db.Users, "Id", "UserRole", customer.UserId);
+            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "UserRole", customer.UserId);
             return View(customer);
         }
 
@@ -75,8 +73,7 @@ namespace TrashCollection.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AddressID = new SelectList(db.Address, "AddressID", "Street1", customer.AddressID);
-            ViewBag.UserId = new SelectList(db.Users, "Id", "UserRole", customer.UserId);
+            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "UserRole", customer.UserId);
             return View(customer);
         }
 
@@ -85,7 +82,7 @@ namespace TrashCollection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerID,FirstName,LastName,Company,Role,EmailAddress,AddressID,UserId")] Customer customer)
+        public ActionResult Edit([Bind(Include = "CustomerID,FirstName,LastName,Company,Role,EmailAddress,UserId")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -93,8 +90,7 @@ namespace TrashCollection.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AddressID = new SelectList(db.Address, "AddressID", "Street1", customer.AddressID);
-            ViewBag.UserId = new SelectList(db.Users, "Id", "UserRole", customer.UserId);
+            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "UserRole", customer.UserId);
             return View(customer);
         }
 

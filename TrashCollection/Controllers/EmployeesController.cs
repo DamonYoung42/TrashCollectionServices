@@ -37,9 +37,10 @@ namespace TrashCollection.Controllers
             List<Pickup> employeePickups = new List<Pickup>();
             employeePickups = db.Pickup.ToList().Where(g=> g.EmployeeID == epModel.employee.EmployeeID).ToList();
             epModel.employeePickups = employeePickups;
+            //int AddressID = epModel.pickupAddressJunc.AddressID.Where(g => g.PickupID == epModel.pickup.PickupID);
+
             return View(epModel);
 
-            //int AddressID = epModel.pickupAddressJunc.AddressID.Where(g => g.PickupID == epModel.pickup.PickupID);
         }
 
         // GET: Employees/Create
