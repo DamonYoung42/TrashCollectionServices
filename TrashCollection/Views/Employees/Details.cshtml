@@ -26,20 +26,20 @@
             @Html.DisplayFor(model => model.employee.LastName)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.employee.EmailAddress)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.employee.EmailAddress)
-        </dd>
+        </dd>*@
 
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.employee.EmployeeID }) |
-    @Html.ActionLink("Index", "Home")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.employee.EmployeeID }) 
+    @*@Html.ActionLink("Index", "Home")*@
 </p>
 
 <table class="table">

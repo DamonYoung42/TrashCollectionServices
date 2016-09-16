@@ -60,8 +60,27 @@ namespace TrashCollection.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            if (User.IsInRole("Customer"))
+            {
+                var userId = User.Identity.GetUserId();
+
+                var customerId = context.Customer.Where(y => y.UserId == userId).Select(m => m.CustomerID).First();
+                return RedirectToAction("Details/" + customerId, "Addresses");
+            }
+            else if (User.IsInRole("Employee"))
+            {
+                var userId = User.Identity.GetUserId();
+
+                var employeeID = context.Employee.Where(y => y.UserId == userId).Select(m => m.EmployeeID).First();
+
+                return RedirectToAction("Details/" + employeeID, "Employees");
+            }
+            else
+            {
+                ViewBag.ReturnUrl = returnUrl;
+                return View();
+            }
+
         }
 
         //

@@ -11,6 +11,7 @@ using TrashCollection.Models;
 
 namespace TrashCollection.Controllers
 {
+    [Authorize(Roles = "Employee")]
     public class EmployeesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -93,7 +94,7 @@ namespace TrashCollection.Controllers
                 db.Entry(employee).State = EntityState.Modified;
 
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Details/" + employee.EmployeeID, "Employees");
             }
             return View(employee);
         }

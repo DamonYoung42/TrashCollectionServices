@@ -10,6 +10,7 @@ using TrashCollection.Models;
 
 namespace TrashCollection.Controllers
 {
+    [Authorize(Roles = "Customer")]
     public class CustomersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -39,7 +40,7 @@ namespace TrashCollection.Controllers
         // GET: Customers/Create
         public ActionResult Create()
         {
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "UserRole");
+            //ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "UserRole");
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace TrashCollection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerID,FirstName,LastName,Company,Role,EmailAddress,UserId")] Customer customer)
+        public ActionResult Create([Bind(Include = "CustomerID,FirstName,LastName,Company,Role,EmailAddress,UserId, customerAddresses")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +58,7 @@ namespace TrashCollection.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "UserRole", customer.UserId);
+            //ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "UserRole", customer.UserId);
             return View(customer);
         }
 
@@ -73,7 +74,7 @@ namespace TrashCollection.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "UserRole", customer.UserId);
+            //ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "UserRole", customer.UserId);
             return View(customer);
         }
 
@@ -90,7 +91,7 @@ namespace TrashCollection.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "UserRole", customer.UserId);
+            //ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "UserRole", customer.UserId);
             return View(customer);
         }
 

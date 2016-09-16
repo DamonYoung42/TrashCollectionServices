@@ -18,15 +18,10 @@ namespace TrashCollection.Controllers
         // GET: Addresses
         public ActionResult Index()
         {
+
             var userId = User.Identity.GetUserId();
-
-            //var model = db.Customer.Include(y => y.customerAddresses).Where(y => y.UserId == userId).SingleOrDefault();
-            var model = db.Customer.Where(y => y.UserId == userId).SingleOrDefault();
-
-            //var model = db.Customer.Include(x => x.ApplicationUser).Include(x => x.customerAddresses).Where(x => x.ApplicationUser.Id == userId).ToList();
-
-            //var model = db.Address.Where(y => y.CustomerID == currentCustomer.);
-            return View(model.customerAddresses);
+            var model = db.Customer.Where(y => y.UserId == userId).First();
+            //return View(model.customerAddresses);
 
             //Adam's brilliant solution
             //var userId = User.Identity.GetUserId();
@@ -36,8 +31,8 @@ namespace TrashCollection.Controllers
             //return View(model);
 
             //ORIGINAL CODE
-            //var address = db.Address.Include(a => a.City).Include(a => a.Customer).Include(a => a.Zipcode);
-            //return View(address.ToList());
+            var address = db.Address.Include(a => a.City).Include(a => a.Customer).Include(a => a.Zipcode).Where(x => x.CustomerID == model.CustomerID);
+            return View(address.ToList());
         }
 
         // GET: Addresses/Details/5
@@ -59,8 +54,11 @@ namespace TrashCollection.Controllers
         public ActionResult Create()
         {
             //var userId = User.Identity.GetUserId();
+
             ViewBag.CityID = new SelectList(db.City, "CityID", "CityName");
             //ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName");
+            //ViewBag.ZipId = new SelectList(db.Zipcode.OrderBy(x => x.ZipcodeName).ToList());
+            //ViewBag.ZipId = new SelectList(db.Zipcode, "ZipID", "ZipcodeName").OrderBy(x => x.Value).ToList();
             ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName");
             return View();
         }
