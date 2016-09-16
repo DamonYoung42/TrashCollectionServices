@@ -49,14 +49,23 @@
         </th>
 
         <th>
-            @Html.DisplayNameFor(model => model.pickup.PickupID)
+            @Html.DisplayNameFor(model => model.pickup.PickupDate.Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.pickup.PickupDate)
+            @Html.DisplayNameFor(model => model.address.Street1)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.AddressID)
-        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.address.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address.City.State )
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address.Zipcode)
+        </th>
+
+
+
 
         <th></th>
     </tr>
@@ -69,14 +78,22 @@
             </td>
 
             <td>
-                @Html.DisplayFor(modelItem => pickupItem.PickupID)
+                @Html.DisplayFor(modelItem => pickupItem.PickupDate.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => pickupItem.PickupDate)
+                @Html.DisplayFor(modelItem => pickupItem.Address.Street1)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => address.AddressID)
-            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => pickupItem.Address.City.CityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => pickupItem.Address.City.State.StateName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => pickupItem.Address.Zipcode.ZipcodeName)
+            </td>
+
 
             @*<td>
                 @Html.ActionLink("Edit", "Edit", new { id = pickupItem.EmployeeID }) |

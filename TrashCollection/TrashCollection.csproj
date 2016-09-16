@@ -261,10 +261,6 @@
     <Compile Include="Migrations\201609151707478_added pickup address juncture table and removed all classes.Designer.cs">
       <DependentUpon>201609151707478_added pickup address juncture table and removed all classes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609161840064_nullable cascadeDelete no more junc table.cs" />
-    <Compile Include="Migrations\201609161840064_nullable cascadeDelete no more junc table.Designer.cs">
-      <DependentUpon>201609161840064_nullable cascadeDelete no more junc table.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -420,9 +416,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609151707478_added pickup address juncture table and removed all classes.resx">
       <DependentUpon>201609151707478_added pickup address juncture table and removed all classes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609161840064_nullable cascadeDelete no more junc table.resx">
-      <DependentUpon>201609161840064_nullable cascadeDelete no more junc table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
