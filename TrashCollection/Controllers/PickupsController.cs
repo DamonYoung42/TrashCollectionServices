@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TrashCollection.Models;
+using Microsoft.AspNet.Identity;
 
 namespace TrashCollection.Controllers
 {
@@ -17,8 +18,17 @@ namespace TrashCollection.Controllers
         // GET: Pickups
         public ActionResult Index()
         {
-            var pickup = db.Pickup.Include(p => p.Address).Include(p => p.Employee);
-            return View(pickup.ToList());
+            CustomerPickupViewModel cpModel = new CustomerPickupViewModel();
+
+            List<Pickup> customerPickups = new List<Pickup>();
+            //SELECT column_name, aggregate_function(column_name)
+            //FROM table_name
+            //WHERE column_name operator value
+            //GROUP BY column_name;
+            var userId = User.Identity.GetUserId();
+            customerPickups = db.Pickup.Include(x => x.Address.Customer.ApplicationUser).Where(g => g.Address.Customer.ApplicationUser.Id == userId).ToList();
+
+            return View(customerPickups.ToList());
         }
 
         // GET: Pickups/Details/5
