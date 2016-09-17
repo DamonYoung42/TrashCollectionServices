@@ -11,7 +11,8 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.employee.FirstName)
+            @Html.Label("First Name")
+            @*@Html.DisplayNameFor(model => model.employee.FirstName)*@
         </dt>
 
         <dd>
@@ -19,7 +20,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.employee.LastName)
+            @Html.Label("Last Name")
+            @*@Html.DisplayNameFor(model => model.employee.LastName)*@
         </dt>
 
         <dd>
@@ -45,23 +47,29 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.pickup.Status)
+            @Html.Label("Active")
+            @*@Html.DisplayNameFor(model => model.pickup.Status)*@
         </th>
 
         <th>
-            @Html.DisplayNameFor(model => model.pickup.PickupDate.Date)
+            @Html.Label("Pickup Date")
+            @*@Html.DisplayNameFor(model => model.pickup.PickupDate.Date)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.address.Street1)
+            @Html.Label("Address")
+            @*@Html.DisplayNameFor(model => model.address.Street1)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.address.City)
+            @Html.Label("City")
+            @*@Html.DisplayNameFor(model => model.address.City)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.address.City.State )
+            @Html.Label("State")
+            @*@Html.DisplayNameFor(model => model.address.City.State )*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.address.Zipcode)
+            @Html.Label("ZipCode")
+            @*@Html.DisplayNameFor(model => model.address.Zipcode)*@
         </th>
 
 

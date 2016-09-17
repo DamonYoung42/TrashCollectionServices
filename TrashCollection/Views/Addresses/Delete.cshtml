@@ -12,7 +12,8 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Street1)
+            @Html.LabelFor(model => model.Street1, "Address")
+            @*@Html.DisplayNameFor(model => model.Street1)*@
         </dt>
 
         <dd>
@@ -20,14 +21,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Street2)
+            @Html.LabelFor(model => model.Street2, "Apt./Suite")
+            @*@Html.DisplayNameFor(model => model.Street2)*@
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Street2)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.City.CityName)
+            @Html.LabelFor(model => model.City, "City")
+            @*@Html.DisplayNameFor(model => model.City.CityName)*@
         </dt>
 
         <dd>
@@ -35,7 +38,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Zipcode.ZipcodeName)
+            @Html.LabelFor(model => model.Zipcode, "ZipCode")
+            @* @Html.DisplayNameFor(model => model.Zipcode.ZipcodeName)*@
         </dt>
 
         <dd>

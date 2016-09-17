@@ -12,16 +12,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Address.Street1)
+            @Html.Label("Address")
+            @*@Html.DisplayNameFor(model => model.Address.Street1)*@
         </th>
         @*<th>
             @Html.DisplayNameFor(model => model.Customer.FirstName)
         </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.PickupDate)
+            @Html.Label("Pickup Date")
+            @*@Html.DisplayNameFor(model => model.PickupDate)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Status)
+            @Html.Label("Active")
+            @*@Html.DisplayNameFor(model => model.Status)*@
         </th>
         <th></th>
     </tr>
