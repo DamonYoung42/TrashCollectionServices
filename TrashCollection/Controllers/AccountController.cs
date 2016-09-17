@@ -102,7 +102,19 @@ namespace TrashCollection.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToAction("Index", "Addresses");
+                    if (User.IsInRole("Customer"))
+                    {
+                        return RedirectToAction("Index", "Addresses");
+                    }
+                    else
+                    {
+
+                        var userId = User.Identity.GetUserId();
+                        var employeeId = context.Employee.Where(y => y.UserId == userId).First().EmployeeID;
+                        return RedirectToAction("Details/" + employeeId, "Employees");
+                    }
+               
+
                     //return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -198,11 +210,15 @@ namespace TrashCollection.Controllers
                     }
                     else
                     {
-                        var employee = new Employee();
-                        employee.UserId = user.Id;
-                        context.Employee.Add(employee);
-                        context.SaveChanges();
-                        return RedirectToAction("Edit/"+employee.EmployeeID, "Employees");
+                        return RedirectToAction("Create", "Employees");
+
+                        //***this worked before ZipID FK added to Employee table
+                        //var employee = new Employee();
+                        //employee.UserId = user.Id;
+                        //context.Employee.Add(employee);
+                        //context.SaveChanges();
+                        //return RedirectToAction("Edit/"+employee.EmployeeID, "Employees");
+                        //***
                     }
 
                 }

@@ -51,6 +51,8 @@ namespace TrashCollection.Controllers
         // GET: Employees/Create
         public ActionResult Create()
         {
+            ViewBag.UserId = User.Identity.GetUserId();
+            ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName");
             return View();
         }
 
@@ -59,10 +61,13 @@ namespace TrashCollection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId,FirstName,LastName,EmailAddress")] Employee employee)
+        public ActionResult Create([Bind(Include = "UserId,FirstName,LastName,EmailAddress,ZipID")] Employee employee)
         {
             if (ModelState.IsValid)
             {
+                //employee.UserId = employee.ApplicationUser.Id;
+                var userId = User.Identity.GetUserId();
+                employee.UserId = userId;
                 db.Employee.Add(employee);
                 db.SaveChanges();
                 return RedirectToAction("Details/"+employee.EmployeeID);
@@ -83,6 +88,7 @@ namespace TrashCollection.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName", employee.ZipID);
             return View(employee);
         }
 
@@ -91,7 +97,7 @@ namespace TrashCollection.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeID,FirstName,LastName,UserId")] Employee employee)
+        public ActionResult Edit([Bind(Include = "EmployeeID,FirstName,LastName,UserId,ZipID")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -100,6 +106,7 @@ namespace TrashCollection.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Details/" + employee.EmployeeID, "Employees");
             }
+            ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName", employee.ZipID);
             return View(employee);
         }
 
@@ -115,6 +122,7 @@ namespace TrashCollection.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ZipID = new SelectList(db.Zipcode, "ZipID", "ZipcodeName", employee.ZipID);
             return View(employee);
         }
 
