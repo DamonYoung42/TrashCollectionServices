@@ -21,9 +21,14 @@ namespace TrashCollection.Models
 
         public string EmailAddress { get; set; }
 
+        [ForeignKey("Zipcode")]
+        public int ZipID {get; set;}
+        public virtual Zipcode Zipcode { get; set; } 
+
         [ForeignKey("ApplicationUser")]
         public string UserId { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
+
 
     }
 }

@@ -53,6 +53,7 @@ namespace TrashCollection.Controllers
             var userId = User.Identity.GetUserId();
             var customerId = db.Customer.First(x => x.UserId == userId).CustomerID;
             ViewBag.AddressId = new SelectList(db.Address.Where(g => g.CustomerID == customerId), "AddressID", "Street1");
+            EmployeePickupViewModel epModel = new EmployeePickupViewModel();
             //ViewBag.AddressID = new SelectList(db.Address, "AddressID", "Street1");
             //ViewBag.EmployeeID = new SelectList(db.Employee, "EmployeeID", "FirstName");
             return View();

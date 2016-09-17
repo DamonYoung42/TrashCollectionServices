@@ -262,6 +262,14 @@
     <Compile Include="Migrations\201609151707478_added pickup address juncture table and removed all classes.Designer.cs">
       <DependentUpon>201609151707478_added pickup address juncture table and removed all classes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609172059206_added ZipID to Employees model.cs" />
+    <Compile Include="Migrations\201609172059206_added ZipID to Employees model.Designer.cs">
+      <DependentUpon>201609172059206_added ZipID to Employees model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609172104246_deleted MY employees and pickups tables.cs" />
+    <Compile Include="Migrations\201609172104246_deleted MY employees and pickups tables.Designer.cs">
+      <DependentUpon>201609172104246_deleted MY employees and pickups tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -423,6 +431,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609151707478_added pickup address juncture table and removed all classes.resx">
       <DependentUpon>201609151707478_added pickup address juncture table and removed all classes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609172059206_added ZipID to Employees model.resx">
+      <DependentUpon>201609172059206_added ZipID to Employees model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609172104246_deleted MY employees and pickups tables.resx">
+      <DependentUpon>201609172104246_deleted MY employees and pickups tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
