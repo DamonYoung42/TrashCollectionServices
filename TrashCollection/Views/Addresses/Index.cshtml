@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<TrashCollection.Models.Address>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Your Current Addresses";
 }
 
-<h2>Index</h2>
+<h2>Your Current Addresses</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -44,7 +44,8 @@
 
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.AddressID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AddressID }) |
+            @Html.ActionLink("Schedule Pickups", "Index", "Pickups") |
+           @* @Html.ActionLink("Details", "Details", new { id=item.AddressID }) |*@
             @Html.ActionLink("Delete", "Delete", new { id=item.AddressID })
         </td>
     </tr>
