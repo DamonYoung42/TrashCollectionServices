@@ -61,13 +61,16 @@ namespace TrashCollection.Controllers
 
         // POST: Pickups/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PickupID,PickupDate,Status,EmployeeID,AddressID")] Pickup pickup)
+        public ActionResult Create([Bind(Include = "PickupID,PickupDate,Status,EmployeeID,AddressID, Address, Employee")] Pickup pickup)
         {
             if (ModelState.IsValid)
             {
+                var zipId = db.Address.Where(y => y.AddressID == pickup.AddressID).First().ZipID;
+                var empId = db.Employee.Where(y => y.ZipID == zipId).First().EmployeeID;
+                pickup.EmployeeID = empId;
                 db.Pickup.Add(pickup);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -105,6 +108,9 @@ namespace TrashCollection.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(pickup).State = EntityState.Modified;
+                var zipId = db.Address.Where(y => y.AddressID == pickup.AddressID).First().ZipID;
+                var empId = db.Employee.Where(y => y.ZipID == zipId).First().EmployeeID;
+                pickup.EmployeeID = empId;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
