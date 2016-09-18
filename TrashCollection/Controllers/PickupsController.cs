@@ -93,8 +93,11 @@ namespace TrashCollection.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AddressID = new SelectList(db.Address, "AddressID", "Street1", pickup.AddressID);
-            //ViewBag.EmployeeID = new SelectList(db.Employee, "EmployeeID", "FirstName", pickup.EmployeeID);
+            var userId = User.Identity.GetUserId();
+            var customerId = db.Customer.First(x => x.UserId == userId).CustomerID;
+            ViewBag.AddressID = new SelectList(db.Address.Where(g => g.CustomerID == customerId), "AddressID", "Street1");
+            //ViewBag.AddressID = new SelectList(db.Address, "AddressID", "Street1", pickup.AddressID);
+            ViewBag.EmployeeID = new SelectList(db.Employee, "EmployeeID", "FirstName", pickup.EmployeeID);
             return View(pickup);
         }
 
@@ -115,7 +118,7 @@ namespace TrashCollection.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.AddressID = new SelectList(db.Address, "AddressID", "Street1", pickup.AddressID);
-            //ViewBag.EmployeeID = new SelectList(db.Employee, "EmployeeID", "FirstName", pickup.EmployeeID);
+            ViewBag.EmployeeID = new SelectList(db.Employee, "EmployeeID", "FirstName", pickup.EmployeeID);
             return View(pickup);
         }
 
