@@ -63,10 +63,9 @@ namespace TrashCollection.Controllers
             if (User.IsInRole("Customer"))
             {
                 var userId = User.Identity.GetUserId();
-
-                var customerId = db.Customer.Where(y => y.UserId == userId).Select(m => m.CustomerID).First();
-                var addressId = db.Address.Where(y => y.CustomerID == customerId).Select(m => m.AddressID).First();
-                return RedirectToAction("Details/" + addressId, "Addresses");
+                var customerId = context.Customer.Where(y => y.UserId == userId).Select(m => m.CustomerID).First();
+                var addressId = context.Address.Where(y => y.CustomerID == customerId).Select(m => m.AddressID).First();
+                return RedirectToAction("Index", "Addresses");
             }
             else if (User.IsInRole("Employee"))
             {
@@ -102,20 +101,19 @@ namespace TrashCollection.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    if (User.IsInRole("Customer"))
-                    {
-                        return RedirectToAction("Index", "Addresses");
-                    }
-                    else
-                    {
+                    //if (User.IsInRole("Customer"))
+                    //{
+                    //    return RedirectToAction("Index", "Addresses");
+                    //}
+                    //else
+                    //{
+                    //    var userId = User.Identity.GetUserId();
+                    //    var employeeId = context.Employee.Where(y => y.UserId == userId).First().EmployeeID;
+                    //    return RedirectToAction("Details/" + employeeId, "Employees");
+                    //}
 
-                        var userId = User.Identity.GetUserId();
-                        var employeeId = db.Employee.Where(y => y.UserId == userId).First().EmployeeID;
-                        return RedirectToAction("Details/" + employeeId, "Employees");
-                    }
-               
 
-                    //return RedirectToLocal(returnUrl);
+                    return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
