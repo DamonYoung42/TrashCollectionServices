@@ -37,7 +37,7 @@ namespace TrashCollection.Controllers
 
 
 
-            return View(cpModel);
+            return View(customerPickups.ToList());
         }
 
         // GET: Pickups/Details/5
