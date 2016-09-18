@@ -86,7 +86,7 @@
             </td>
 
             <td>
-                @Html.DisplayFor(modelItem => pickupItem.PickupDate.Date)
+                @Html.DisplayFor(modelItem => pickupItem.PickupDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => pickupItem.Address.Street1)
@@ -119,22 +119,44 @@
 
 <body>
 
+    <p>Click the button to see the pickups on a map.</p>
+    <p></p>
+    <button onclick="employeePickupAddresses.forEach(codeAddress)">Click</button>
+    <p></p>
+
     <div id="map" style="width:100%;height:500px"></div>
 
-    <script>
-function myMap() {
-  var myCenter = new google.maps.LatLng(43,-88);
-  var mapCanvas = document.getElementById("map");
-  var mapOptions = {center: myCenter, zoom: 13};
-  var map = new google.maps.Map(mapCanvas, mapOptions);
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJqGZjsGpZlyNJgDWOakfB4euZosFNokk&callback=myMap"></script>
 
-  var marker = new google.maps.Marker({position:myCenter});
-  marker.setMap(map);
-}
-    </script>
+    <script type="text/javascript">
 
-    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(43,-88),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+    function codeAddress() {
+        //var address = document.getElementById('address').value;
+        {
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == 'OK') {
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+    }</script>
 
 </body>
 </html>
+
+
 

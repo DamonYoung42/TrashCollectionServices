@@ -63,8 +63,8 @@ namespace TrashCollection.Controllers
             if (User.IsInRole("Customer"))
             {
                 var userId = User.Identity.GetUserId();
-                var customerId = context.Customer.Where(y => y.UserId == userId).Select(m => m.CustomerID).First();
-                var addressId = context.Address.Where(y => y.CustomerID == customerId).Select(m => m.AddressID).First();
+                var customerId = db.Customer.Where(y => y.UserId == userId).Select(m => m.CustomerID).First();
+                var addressId = db.Address.Where(y => y.CustomerID == customerId).Select(m => m.AddressID).First();
                 return RedirectToAction("Index", "Addresses");
             }
             else if (User.IsInRole("Employee"))

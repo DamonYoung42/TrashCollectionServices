@@ -13,6 +13,7 @@ namespace TrashCollection.Models
         public Address address = new Address();
         public City city = new City();
         public List<Pickup> employeePickups;
+        public List<string> employeePickupAddresses;
 
 
 
