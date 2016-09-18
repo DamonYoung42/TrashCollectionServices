@@ -379,6 +379,8 @@
     <Content Include="Views\Pickups\Edit.cshtml" />
     <Content Include="Views\Pickups\Index.cshtml" />
     <Content Include="Views\View.cshtml" />
+    <Content Include="Views\View1.cshtml" />
+    <Content Include="Views\ViewPage1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

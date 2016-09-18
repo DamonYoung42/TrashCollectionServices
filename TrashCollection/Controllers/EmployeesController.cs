@@ -42,8 +42,16 @@ namespace TrashCollection.Controllers
 
 
             epModel.employeePickups = employeePickups;
+            List<string> employeePickupAddresses = new List<string>();
 
-            
+            foreach (Pickup pickupItem in employeePickups)
+            {
+                employeePickupAddresses.Add(pickupItem.Address.Street1+","+ pickupItem.Address.Street2+","+ pickupItem.Address.City.CityName + "," + pickupItem.Address.City.State.StateName);
+
+            }
+
+
+
             return View(epModel);
 
         }
