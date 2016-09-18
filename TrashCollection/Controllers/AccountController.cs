@@ -18,11 +18,11 @@ namespace TrashCollection.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        ApplicationDbContext context; 
+        ApplicationDbContext db; 
 
         public AccountController()
         {
-            context = new ApplicationDbContext();
+            db = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -64,15 +64,15 @@ namespace TrashCollection.Controllers
             {
                 var userId = User.Identity.GetUserId();
 
-                var customerId = context.Customer.Where(y => y.UserId == userId).Select(m => m.CustomerID).First();
-                var addressId = context.Address.Where(y => y.CustomerID == customerId).Select(m => m.AddressID).First();
+                var customerId = db.Customer.Where(y => y.UserId == userId).Select(m => m.CustomerID).First();
+                var addressId = db.Address.Where(y => y.CustomerID == customerId).Select(m => m.AddressID).First();
                 return RedirectToAction("Details/" + addressId, "Addresses");
             }
             else if (User.IsInRole("Employee"))
             {
                 var userId = User.Identity.GetUserId();
 
-                var employeeID = context.Employee.Where(y => y.UserId == userId).Select(m => m.EmployeeID).First();
+                var employeeID = db.Employee.Where(y => y.UserId == userId).Select(m => m.EmployeeID).First();
 
                 return RedirectToAction("Details/" + employeeID, "Employees");
             }
@@ -110,7 +110,7 @@ namespace TrashCollection.Controllers
                     {
 
                         var userId = User.Identity.GetUserId();
-                        var employeeId = context.Employee.Where(y => y.UserId == userId).First().EmployeeID;
+                        var employeeId = db.Employee.Where(y => y.UserId == userId).First().EmployeeID;
                         return RedirectToAction("Details/" + employeeId, "Employees");
                     }
                
@@ -204,8 +204,8 @@ namespace TrashCollection.Controllers
                     {
                         var customer = new Customer();
                         customer.UserId = user.Id;
-                        context.Customer.Add(customer);
-                        context.SaveChanges();
+                        db.Customer.Add(customer);
+                        db.SaveChanges();
                         return RedirectToAction("Create", "Addresses");
                     }
                     else
