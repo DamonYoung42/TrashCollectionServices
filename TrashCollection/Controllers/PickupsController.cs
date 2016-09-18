@@ -27,9 +27,17 @@ namespace TrashCollection.Controllers
             //WHERE column_name operator value
             //GROUP BY column_name;
             var userId = User.Identity.GetUserId();
-            customerPickups = db.Pickup.Include(x => x.Address.Customer.ApplicationUser).Where(g => g.Address.Customer.ApplicationUser.Id == userId).ToList();
+            customerPickups = db.Pickup.Include(x => x.Address.Customer.ApplicationUser).
+                Where(g => g.Address.Customer.ApplicationUser.Id == userId).ToList();
+            //List<Pickup> monthlyPickups = new List<Pickup>();
+            //monthlyPickups = db.Pickup.Where(x => x.PickupDate > DateTime.Now.AddMonths(-1)).
+            //    Where(y => y.Status == true).Where(g => g.Address.Customer.ApplicationUser.Id
+            //      == userId).ToList();
+            //cpModel.monthlyTotal = 20 * (monthlyPickups.Count());
 
-            return View(customerPickups.ToList());
+
+
+            return View(cpModel);
         }
 
         // GET: Pickups/Details/5
