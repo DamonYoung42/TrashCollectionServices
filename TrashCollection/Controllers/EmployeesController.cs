@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml;
 using TrashCollection.Models;
 
 namespace TrashCollection.Controllers
@@ -37,9 +38,8 @@ namespace TrashCollection.Controllers
             }
             List<Pickup> employeePickups = new List<Pickup>();
             //do not erase this, it works
-            employeePickups = db.Pickup.Where(x => x.PickupDate.Day.Equals(DateTime.Now.Day)).Include(X => X.Address).Include(p => p.Address.City.State).Include(q => q.Address.Zipcode).ToList().Where(g => g.EmployeeID == epModel.employee.EmployeeID).ToList();
+            employeePickups = db.Pickup.Where(x => x.PickupDate.Month.Equals(DateTime.Now.Month)&& x.PickupDate.Day.Equals(DateTime.Now.Day)).Include(X => X.Address).Include(p => p.Address.City.State).Include(q => q.Address.Zipcode).ToList().Where(g => g.EmployeeID == epModel.employee.EmployeeID).ToList();
             //do not erase this, it works
-
 
             epModel.employeePickups = employeePickups;
             List<string> employeePickupAddresses = new List<string>();
@@ -49,8 +49,7 @@ namespace TrashCollection.Controllers
                 employeePickupAddresses.Add(pickupItem.Address.Street1+","+ pickupItem.Address.Street2+","+ pickupItem.Address.City.CityName + "," + pickupItem.Address.City.State.StateName);
 
             }
-
-
+            epModel.employeePickupAddresses = employeePickupAddresses;
 
             return View(epModel);
 
