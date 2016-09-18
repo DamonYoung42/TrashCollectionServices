@@ -1,0 +1,6 @@
+created map view in Employees Views folder
+added code from http://www.asp.net/mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
+
+google maps api key
+AIzaSyA5_5cy7lwaLAt9wwiWZAYdVE1bJizhDPE
+
