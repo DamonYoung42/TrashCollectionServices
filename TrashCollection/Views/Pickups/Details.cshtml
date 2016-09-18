@@ -48,7 +48,14 @@
 
     </dl>
 </div>
+
+<div id="mapDiv">
+    <%Html.RenderPartial("map"); %>
+</div>   
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.PickupID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+
