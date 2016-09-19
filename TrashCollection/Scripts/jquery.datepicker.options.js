@@ -1,3 +1,3 @@
 ﻿$(function(){
-    $(".date-picker").datepicker({ minDate : +1, beforeShowDay: $.datepicker.noWeekends});
+    $(".date-picker").datepicker({ minDate : 0, beforeShowDay: $.datepicker.noWeekends});
 })

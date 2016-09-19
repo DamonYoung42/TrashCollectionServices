@@ -121,39 +121,56 @@
 
     <p>Click the button to see the pickups on a map.</p>
     <p></p>
-    <button onclick="employeePickupAddresses.forEach(codeAddress)">Click</button>
+    <button onclick="codeAddress()">Click</button>
+    @*<button onclick="model.employeePickupAddresses.forEach(codeAddress)">Click</button>*@
     <p></p>
 
     <div id="map" style="width:100%;height:500px"></div>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJqGZjsGpZlyNJgDWOakfB4euZosFNokk&callback=myMap"></script>
-
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJqGZjsGpZlyNJgDWOakfB4euZosFNokk"></script>
     <script type="text/javascript">
+    var map;
+    function myMap(){
+        //var myCenter = new google.maps.LatLng(43,-88);
+        map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 10,
+        center: new google.maps.LatLng(43,-88),
+        mapTypeId: google.maps.MapTypeId.SATELLITE
+        });
+        map.setTilt(45);
+    }
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
-      center: new google.maps.LatLng(43,-88),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+    google.maps.event.addDomListener(window, 'load', myMap);
 
-    var infowindow = new google.maps.InfoWindow();
 
-    var marker, i;
     function codeAddress() {
-        //var address = document.getElementById('address').value;
-        {
-            geocoder.geocode({ 'address': address }, function (results, status) {
+        var infowindow = new google.maps.InfoWindow();
+        var geocoder = new google.maps.Geocoder();
+        var marker;
+        
+        var pickups = @Html.Raw(Json.Encode(Model.employeePickupAddresses));
+
+        for (var i = 0; i < pickups.length; i++) {
+            var x = new Object();
+            x.address = pickups[i];
+            geocoder.geocode(x, function (results, status) {
                 if (status == 'OK') {
-                    var marker = new google.maps.Marker({
+                    var position = new Object();
+                    marker = new google.maps.Marker({
                         map: map,
                         position: results[0].geometry.location
-                    });
+                    });      
+                    bounds.extend(marker.position);
                 } else {
                     alert('Geocode was not successful for the following reason: ' + status);
                 }
             });
         }
-    }</script>
+    }
+    
+
+    
+    </script>
 
 </body>
 </html>
