@@ -28,7 +28,7 @@ namespace TrashCollection.Controllers
             //GROUP BY column_name;
             var userId = User.Identity.GetUserId();
             customerPickups = db.Pickup.Include(x => x.Address.Customer.ApplicationUser).
-                Where(g => g.Address.Customer.ApplicationUser.Id == userId).ToList();
+                Where(g => g.Address.Customer.ApplicationUser.Id == userId).OrderBy(y=>y.PickupDate).ToList();
             //List<Pickup> monthlyPickups = new List<Pickup>();
             //monthlyPickups = db.Pickup.Where(x => x.PickupDate > DateTime.Now.AddMonths(-1)).
             //    Where(y => y.Status == true).Where(g => g.Address.Customer.ApplicationUser.Id
