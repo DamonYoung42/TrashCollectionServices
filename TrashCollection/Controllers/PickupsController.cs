@@ -34,18 +34,20 @@ namespace TrashCollection.Controllers
         }
 
         // GET: Pickups/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details()
         {
             //do not erase this, it works//
             Pickup pickup = new Pickup();
             var userId = User.Identity.GetUserId();
-            pickup.MonthlyPickups = db.Pickup.Include(x => x.Address.Customer.ApplicationUser).
+            var customerId = db.Customer.First(x => x.UserId == userId).CustomerID;
+            pickup.MonthlyPickups = db.Pickup.Include(x => x.Address.Customer).
                 Where(g => g.Address.Customer.ApplicationUser.Id == userId).Where(h=> h.Status == true).OrderBy(y => y.PickupDate).ToList();
             //do not erase this, it works//
 
             DateTime lastDate = DateTime.Now.AddMonths(-1);
-            List<Pickup> TruePickups = db.Pickup.Include(x => x.Address.Customer.
-                ApplicationUser).Where(h => h.Status == true).ToList();
+            List<Pickup> TruePickups = db.Pickup.Include(x => 
+                x.Address.Customer).Where(g => g.Address.Customer.
+                ApplicationUser.Id == userId).Where(h => h.Status == true).ToList();
             List<Pickup> anotherList = TruePickups.Where(q => q.PickupDate < DateTime.Today && q.PickupDate.Month > lastDate.Month).ToList();
 
             int numberOfPickups = anotherList.Count();
@@ -66,7 +68,7 @@ namespace TrashCollection.Controllers
             var userId = User.Identity.GetUserId();
             var customerId = db.Customer.First(x => x.UserId == userId).CustomerID;
             ViewBag.AddressId = new SelectList(db.Address.Where(g => g.CustomerID == customerId), "AddressID", "Street1");
-            EmployeePickupViewModel epModel = new EmployeePickupViewModel();
+            //EmployeePickupViewModel epModel = new EmployeePickupViewModel();
             //ViewBag.AddressID = new SelectList(db.Address, "AddressID", "Street1");
             //ViewBag.EmployeeID = new SelectList(db.Employee, "EmployeeID", "FirstName");
             return View();
