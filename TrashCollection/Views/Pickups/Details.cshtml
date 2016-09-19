@@ -1,24 +1,24 @@
 ﻿@model TrashCollection.Models.Pickup
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Monthly Statement";
 }
 
-<h2>Details</h2>
+<h2>Monthly Statement</h2>
 
 <div>
-    <h4>Month-To-Date Statement</h4>
+    <h@*4>Month-To-Date Statement</h4>*@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.Label("Billing Date")
+            @Html.Label("Billing date:")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.todaysDate)
         </dd>
         <dt>
-            @Html.Label("Number of Pickups")
+            @Html.Label("Number of pickups:")
         </dt>
 
         <dd>
@@ -26,7 +26,7 @@
         </dd>
 
         <dt>
-            @Html.Label("Current Total")
+            @Html.Label("Current balance due:")
         </dt>
 
         <dd>
