@@ -33,7 +33,7 @@ namespace TrashCollection.Controllers
             //monthlyPickups = db.Pickup.Where(x => x.PickupDate > DateTime.Now.AddMonths(-1)).
             //    Where(y => y.Status == true).Where(g => g.Address.Customer.ApplicationUser.Id
             //      == userId).ToList();
-            //cpModel.monthlyTotal = 20 * (monthlyPickups.Count());
+            //monthlyTotal = 20 * (monthlyPickups.Count());
 
 
 
