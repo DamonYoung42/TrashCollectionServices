@@ -87,8 +87,20 @@ namespace TrashCollection.Controllers
                 var empId = db.Employee.Where(y => y.ZipID == zipId).First().EmployeeID;
                 pickup.EmployeeID = empId;
                 db.Pickup.Add(pickup);
+
+                if (pickup.yearFillConsent == true)
+                {
+                    for (int week = 0; week <52; week++)
+                    {
+                        DateTime newDate = pickup.PickupDate.AddDays(7);
+                        Pickup newPickup = new Pickup();
+                        newPickup.PickupDate = newDate;
+                        db.Pickup.Add(newPickup);
+                    }
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
             }
 
             ViewBag.AddressID = new SelectList(db.Address, "AddressID", "Street1", pickup.AddressID);

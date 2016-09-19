@@ -16,7 +16,7 @@ namespace TrashCollection.Models
         public string month;
         public string todaysDate;
         public int numberOfPickups;
-
+        public bool yearFillConsent;
 
 
         public Pickup()
