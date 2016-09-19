@@ -7,50 +7,35 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Pickup</h4>
+    <h4>Month-To-Date Statement</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.Label("Address")
-            @*@Html.DisplayNameFor(model => model.Address.Street1)*@
+            @Html.Label("Billing Date")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Address.Street1)
+            @Html.DisplayFor(model => model.todaysDate)
+        </dd>
+        <dt>
+            @Html.Label("Number of Pickups")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numberOfPickups)
         </dd>
 
         <dt>
-            @Html.Label("First Name")
-            @*@Html.DisplayNameFor(model => model.Employee.FirstName)*@
+            @Html.Label("Current Total")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Employee.FirstName)
+            @Html.DisplayFor(model => model.monthlyTotal)
         </dd>
-
-        <dt>
-            @Html.Label("Pickup Date")
-            @*@Html.DisplayNameFor(model => model.PickupDate)*@
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PickupDate)
-        </dd>
-
-        <dt>
-            @Html.Label("Active")
-            @*@Html.DisplayNameFor(model => model.Status)*@
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-
     </dl>
 </div> 
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PickupID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
 

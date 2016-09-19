@@ -21,37 +21,42 @@ namespace TrashCollection.Controllers
         {
             CustomerPickupViewModel cpModel = new CustomerPickupViewModel();
 
-            List<Pickup> customerPickups = new List<Pickup>();
+            List<Pickup> CustomerPickups = new List<Pickup>();
             //SELECT column_name, aggregate_function(column_name)
             //FROM table_name
             //WHERE column_name operator value
             //GROUP BY column_name;
             var userId = User.Identity.GetUserId();
-            customerPickups = db.Pickup.Include(x => x.Address.Customer.ApplicationUser).
-                Where(g => g.Address.Customer.ApplicationUser.Id == userId).OrderBy(y=>y.PickupDate).ToList();
-            //List<Pickup> monthlyPickups = new List<Pickup>();
-            //monthlyPickups = db.Pickup.Where(x => x.PickupDate > DateTime.Now.AddMonths(-1)).
-            //    Where(y => y.Status == true).Where(g => g.Address.Customer.ApplicationUser.Id
-            //      == userId).ToList();
-            //monthlyTotal = 20 * (monthlyPickups.Count());
+            CustomerPickups = db.Pickup.Include(x => x.Address.Customer.ApplicationUser).
+                Where(g => g.Address.Customer.ApplicationUser.Id == userId).OrderBy(y => y.PickupDate).ToList();
 
-
-
-            return View(customerPickups.ToList());
+            return View(CustomerPickups.ToList());
         }
 
         // GET: Pickups/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Pickup pickup = db.Pickup.Find(id);
-            if (pickup == null)
-            {
-                return HttpNotFound();
-            }
+            //do not erase this, it works//
+            Pickup pickup = new Pickup();
+            var userId = User.Identity.GetUserId();
+            pickup.MonthlyPickups = db.Pickup.Include(x => x.Address.Customer.ApplicationUser).
+                Where(g => g.Address.Customer.ApplicationUser.Id == userId).Where(h=> h.Status == true).OrderBy(y => y.PickupDate).ToList();
+            //do not erase this, it works//
+
+            DateTime lastDate = DateTime.Now.AddMonths(-1);
+            List<Pickup> TruePickups = db.Pickup.Include(x => x.Address.Customer.
+                ApplicationUser).Where(h => h.Status == true).ToList();
+            List<Pickup> anotherList = TruePickups.Where(q => q.PickupDate < DateTime.Today && q.PickupDate.Month > lastDate.Month).ToList();
+
+            int numberOfPickups = anotherList.Count();
+
+            decimal monthlyTotal = 20 * (numberOfPickups);
+            pickup.monthlyTotal = monthlyTotal;
+            pickup.numberOfPickups = numberOfPickups;
+
+            string todaysDate = Convert.ToString(DateTime.Now.Month) + "/" + Convert.ToString(DateTime.Now.Day) + "/" + Convert.ToString(DateTime.Now.Year);
+            pickup.todaysDate = todaysDate;
+
             return View(pickup);
         }
 

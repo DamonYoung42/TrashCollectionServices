@@ -9,6 +9,7 @@ namespace TrashCollection.Models
 {
     public class Subscription
     {
+        public decimal subscriptionTotal;
         public Subscription()
         {
 
