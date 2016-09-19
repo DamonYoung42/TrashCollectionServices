@@ -53,6 +53,14 @@
                 @Html.DropDownList("AddressID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.AddressID, "", new { @class = "text-danger" })
             </div>
+
+        </div>
+
+        <div>
+
+            <p>Would you like to schedule Pickups for this weekday for the next 52 weeks?  That will delete all future scheduled pickups.</p>
+            @Html.CheckBox("yearFillConsent")
+            @*<input type="checkbox" name="yearFillConsent" />*@
         </div>
 
 

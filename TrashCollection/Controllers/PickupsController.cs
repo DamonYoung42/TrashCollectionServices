@@ -79,7 +79,7 @@ namespace TrashCollection.Controllers
         //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PickupID,PickupDate,Status,EmployeeID,AddressID, Address, Employee")] Pickup pickup)
+        public ActionResult Create(Pickup pickup, bool yearFillConsent)
         {
             if (ModelState.IsValid)
             {
@@ -87,18 +87,31 @@ namespace TrashCollection.Controllers
                 var empId = db.Employee.Where(y => y.ZipID == zipId).First().EmployeeID;
                 pickup.EmployeeID = empId;
                 db.Pickup.Add(pickup);
-
-                if (pickup.yearFillConsent == true)
+                db.SaveChanges();
+                
+                if (yearFillConsent == true)
                 {
+
+                    List<Pickup> PickupsToDelete = db.Pickup.Where(y => y.PickupDate 
+                        > pickup.PickupDate).ToList().Where(z => z.AddressID == 
+                        pickup.AddressID).ToList();
+
+                    foreach (Pickup pickupItem in PickupsToDelete)
+                    {
+                        db.Pickup.Remove(pickupItem);
+                        db.SaveChanges();
+                    }
+
                     for (int week = 0; week <52; week++)
                     {
-                        DateTime newDate = pickup.PickupDate.AddDays(7);
                         Pickup newPickup = new Pickup();
+                        newPickup = pickup;
+                        DateTime newDate = pickup.PickupDate.AddDays(7);
                         newPickup.PickupDate = newDate;
                         db.Pickup.Add(newPickup);
+                        db.SaveChanges();
                     }
                 }
-                db.SaveChanges();
                 return RedirectToAction("Index");
 
             }
