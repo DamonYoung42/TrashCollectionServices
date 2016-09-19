@@ -18,7 +18,8 @@ namespace TrashCollection.Controllers
         public ActionResult Index()
         {
             var subscription = db.Subscription.Include(s => s.Customer).Include(s => s.Pickup);
-            return View(subscription.ToList());
+            //var subscription = db.Subscription.Include(s => s.Customer).Include(s => s.Pickup).ToList().Count();
+            return View(subscription);
         }
 
         // GET: Subscriptions/Details/5
@@ -41,6 +42,7 @@ namespace TrashCollection.Controllers
         {
             ViewBag.CustomerID = new SelectList(db.Customer, "CustomerID", "FirstName");
             ViewBag.PickupID = new SelectList(db.Pickup, "PickupID", "PickupID");
+            decimal subscriptionTotal = db.Subscription.Include(s => s.Customer).Include(s => s.Pickup).ToList().Count();
             return View();
         }
 

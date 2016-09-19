@@ -13,8 +13,6 @@ namespace TrashCollection.Models
         public Address address = new Address();
         public City city = new City();
         public List<Pickup> customerPickups;
-        public List<Pickup> monthlyPickups;
-        public decimal monthlyTotal;
 
 
 

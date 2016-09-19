@@ -10,6 +10,15 @@ namespace TrashCollection.Models
 {
     public class Pickup
     {
+        public decimal monthlyTotal;
+        public List<Pickup> MonthlyPickups;
+        public List<int> AnotherList;
+        public string month;
+        public string todaysDate;
+        public int numberOfPickups;
+
+
+
         public Pickup()
         {
 

@@ -7,7 +7,10 @@
 <h2>Your Pickup Schedule</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New | ", "Create")
+    @Html.ActionLink("View Your Statement", "Details")
+
+
 </p>
 
 <table class="table">
@@ -30,6 +33,7 @@
         <th></th>
     </tr>
 
+
 @foreach (var item in Model)
 {
     <tr>
@@ -46,6 +50,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.PickupID }) 
             @*@Html.ActionLink("Details", "Details", new { id=item.PickupID }) |
@@ -56,7 +61,10 @@
 }
 </table>
 <div>
-    @Html.ActionLink("Back to Addresses", "Index", "Addresses")
+    @Html.ActionLink("Back to Addresses | ", "Index", "Addresses")
+    @Html.ActionLink("View Your Statement", "Details")
+
+
 </div>
 
 
