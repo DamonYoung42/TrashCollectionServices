@@ -38,7 +38,7 @@ namespace TrashCollection.Controllers
             }
             List<Pickup> employeePickups = new List<Pickup>();
             //do not erase this, it works
-            employeePickups = db.Pickup.Where(x => x.PickupDate.Month.Equals(DateTime.Now.Month)&& x.PickupDate.Day.Equals(DateTime.Now.Day)).Include(X => X.Address).Include(p => p.Address.City.State).Include(q => q.Address.Zipcode).ToList().Where(g => g.EmployeeID == epModel.employee.EmployeeID).ToList();
+            employeePickups = db.Pickup.Where(x => x.PickupDate.Month.Equals(DateTime.Now.Month)&& x.PickupDate.Day.Equals(DateTime.Now.Day)).Where(g=>g.Status==true).Include(X => X.Address).Include(p => p.Address.City.State).Include(q => q.Address.Zipcode).ToList().Where(g => g.EmployeeID == epModel.employee.EmployeeID).ToList();
             //do not erase this, it works
 
             epModel.employeePickups = employeePickups;

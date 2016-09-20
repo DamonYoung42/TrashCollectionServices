@@ -79,6 +79,7 @@ namespace TrashCollection.Controllers
         {
             if (ModelState.IsValid)
             {
+                db.SaveChanges();
                 var zipId = db.Address.Where(y => y.AddressID == pickup.AddressID).First().ZipID;
                 var empId = db.Employee.Where(y => y.ZipID == zipId).First().EmployeeID;
                 pickup.EmployeeID = empId;
