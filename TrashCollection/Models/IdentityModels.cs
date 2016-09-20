@@ -39,10 +39,7 @@ namespace TrashCollection.Models
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Employee> Employee { get; set; }
         public DbSet<Pickup> Pickup { get; set; }
-        //public DbSet<PickupAddressJunc> PickupAddressJunc { get; set; }
-
         public DbSet<State> State { get; set; }
-        public DbSet<Subscription> Subscription { get; set; }
         public DbSet<Zipcode> Zipcode { get; set; }
     }
 }
