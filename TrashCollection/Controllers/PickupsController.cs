@@ -22,10 +22,6 @@ namespace TrashCollection.Controllers
             CustomerPickupViewModel cpModel = new CustomerPickupViewModel();
 
             List<Pickup> CustomerPickups = new List<Pickup>();
-            //SELECT column_name, aggregate_function(column_name)
-            //FROM table_name
-            //WHERE column_name operator value
-            //GROUP BY column_name;
             var userId = User.Identity.GetUserId();
             CustomerPickups = db.Pickup.Include(x => x.Address.Customer.ApplicationUser).
                 Where(g => g.Address.Customer.ApplicationUser.Id == userId).OrderBy(y => y.PickupDate).ToList();

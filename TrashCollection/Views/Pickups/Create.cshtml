@@ -13,6 +13,7 @@
     @Html.HiddenFor(model => model.Address)
     @Html.HiddenFor(model => model.Employee)
 
+
     <div class="form-horizontal">
         <h4>Pickup</h4>
         <hr />
@@ -58,8 +59,8 @@
 
         <div>
 
-            <p>Would you like to schedule Pickups for this weekday for the next 52 weeks?  That will delete all future scheduled pickups.</p>
-            @Html.CheckBox("yearFillConsent")
+            <p>Would you like to schedule pickups for this weekday for the next 52 weeks?<br />Doing so will delete all future scheduled pickups.
+            @Html.CheckBox("yearFillConsent")</p>
             @*<input type="checkbox" name="yearFillConsent" />*@
         </div>
 
